@@ -1,9 +1,9 @@
-import CodeBlock from "./CodeBlock";
+import CodeBlock from "../../CodeBlock";
 
-const NavLink = () => {
+const NavLinkTw = () => {
   return (
     <>
-      <h1>NavLink</h1>
+      <h1>NavLink + Tailwind</h1>
 
       {/* Página Oficial */}
       <CodeBlock
@@ -72,4 +72,4 @@ const NavLink = () => {
   );
 };
 
-export default NavLink;
+export default NavLinkTw;

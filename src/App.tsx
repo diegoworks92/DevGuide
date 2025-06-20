@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import ReactRouter from "./component/ReactRouter";
-import Test from "./component/Test";
 import Home from "./component/Home";
-import Redux from "./component/Redux";
 import StartScreen from "./component/StartScreen";
-import NavLink from "./component/NavLink";
+import NavLinkTw from "./component/documentation/react_router/NavLink-tw";
 import ScrollToTop from "./component/ScrollToTop";
+import Redux from "./component/documentation/redux/Redux";
+import Test from "./component/documentation/testing/Test";
+import ReactRouter from "./component/documentation/react_router/ReactRouter";
+import NavLinkCss from "./component/documentation/react_router/NavLink-css";
+import NotFound from "./component/NotFound";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
           <Route path="/redux" element={<Redux />} />
           <Route path="/test" element={<Test />} />
           <Route path="/react-router" element={<ReactRouter />} />
-          <Route path="/navlink" element={<NavLink />} />
+          <Route path="/navlink-tw" element={<NavLinkTw />} />
+          <Route path="/navlink-css" element={<NavLinkCss />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
