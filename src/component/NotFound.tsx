@@ -1,11 +1,15 @@
+import Title from "./Title";
+
 const NotFound = () => {
   return (
-    <div className="bg-gray-800 p-10 rounded-2xl">
-      <h1 className="text-5xl font-bold mb-4">404</h1>
-      <p className="text-xl text-gray-400">
-        Oops! The page you're looking for doesn't exist.
-      </p>
-    </div>
+    <>
+      <Title name="404!" />
+      <div className="flex justify-center bg-gray-800 text-white p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto">
+        <p className="text-xl text-gray-400">
+          Oops! The page you're looking for doesn't exist.
+        </p>
+      </div>
+    </>
   );
 };
 

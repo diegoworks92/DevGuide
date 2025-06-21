@@ -1,9 +1,10 @@
 import CodeBlock from "../../CodeBlock";
+import Title from "../../Title";
 
 const NavLinkTw = () => {
   return (
     <>
-      <h1>NavLink + Tailwind</h1>
+      <Title name="NavLink + Tailwind" />
 
       {/* Página Oficial */}
       <CodeBlock

@@ -1,9 +1,10 @@
 import CodeBlock from "../../CodeBlock";
+import Title from "../../Title";
 
 const NavLinkCss = () => {
   return (
     <>
-      <h1>NavLink Css</h1>
+      <Title name="NavLink Css" />
 
       {/* Página Oficial */}
       <CodeBlock
@@ -41,7 +42,7 @@ const NavLinkCss = () => {
       <CodeBlock
         title="NavBar.tsx"
         code={`import { NavLink } from "react-router-dom";
-            
+
     <nav>
       <NavLink
         to="/"

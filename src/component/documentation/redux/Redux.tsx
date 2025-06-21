@@ -1,9 +1,10 @@
 import CodeBlock from "../../CodeBlock";
+import Title from "../../Title";
 
 const Redux = () => {
   return (
     <>
-      <h1>Redux Toolkit</h1>
+      <Title name="Redux Toolkit" />
 
       {/* Página Oficial */}
       <CodeBlock

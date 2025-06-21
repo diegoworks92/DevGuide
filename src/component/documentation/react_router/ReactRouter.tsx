@@ -1,10 +1,10 @@
 import CodeBlock from "../../CodeBlock";
+import Title from "../../Title";
 
 const ReactRouter = () => {
   return (
     <>
-      <h1>React Router</h1>
-
+      <Title name="React Router" />
       {/* Página Oficial */}
       <CodeBlock
         title="Official Page Declarative Mode"

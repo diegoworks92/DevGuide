@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import { MdContentCopy } from "react-icons/md";
 interface CodeBlockProps {
   title: string;
   code: string;
@@ -22,15 +22,15 @@ const CodeBlock = ({
   };
 
   return (
-    <div className="bg-gray-900 text-white p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto">
+    <div className="bg-gray-800 text-white p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto">
       {/* Título y botón en la misma línea */}
-      <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mb-2 gap-2">
+      <div className="flex justify-between mb-2 gap-2">
         <span className="text-sm text-gray-400 font-mono">{title}</span>
         <button
           onClick={handleCopy}
-          className="text-gray-400 hover:text-white text-xs px-2 py-1 border border-gray-600 rounded transition"
+          className="text-gray-400 hover:text-white  text-xs px-2 py-1 border border-gray-600 rounded transition"
         >
-          {copied ? "✅ Copiado" : "📋 Copiar"}
+          {copied ? "✅ Copied" : <MdContentCopy />}
         </button>
       </div>
 
@@ -47,3 +47,46 @@ const CodeBlock = ({
 };
 
 export default CodeBlock;
+
+{
+  /*  */
+}
+<CodeBlock title="" code={``} />;
+
+/* 
+prism
+
+prismDark
+
+okaidia
+
+tomorrow
+
+twilight
+
+coy
+
+solarizedlight
+
+atomDark
+
+coldarkDark
+
+coldarkCold
+
+dracula
+
+duotoneDark
+
+duotoneLight
+
+materialDark
+
+materialLight
+
+nightOwl
+
+oneDark
+
+xonokai
+ */

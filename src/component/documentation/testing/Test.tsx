@@ -1,10 +1,10 @@
 import CodeBlock from "../../CodeBlock";
+import Title from "../../Title";
 
 const Test = () => {
   return (
     <>
-      <h1>Unit Tests and Integration Tests</h1>
-
+      <Title name="Unit Tests and Integration Tests" />
       {/* Página Oficial */}
       <CodeBlock
         title="Official Page"

@@ -4,9 +4,13 @@ import Sidebar from "./Sidebar";
 
 const Home = () => {
   return (
-    <div className="relative">
+    <div className="">
       <Nav />
-      <Sidebar />
+      {/* Sidebar de escritorio: visible desde xl en adelante */}
+      <div className="hidden 2xl:block">
+        <Sidebar />
+      </div>
+
       {/* Aquí se renderizan las subrutas como Redux, ReactRouter, etc. */}
       <main className="flex-grow mt-10 p-4 flex flex-col items-center">
         <Outlet />
