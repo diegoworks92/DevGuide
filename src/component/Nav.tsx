@@ -17,7 +17,7 @@ const Nav = () => {
     } hover:text-blue-500 transition duration-300`; */
   return (
     <header className={`z-50 flex flex-nowrap justify-around pb-10`}>
-      <nav className="fixed bg-gray-800 gap-36 sm:gap-96 lg:gap-52 w-full top-0 flex justify-around items-center py-3 z-20  bg-opacity-0 backdrop-blur-md border-b">
+      <nav className="fixed bg-[#1E1E1E] gap-36 sm:gap-96 lg:gap-52 w-full top-0 flex justify-around items-center py-3 z-20  bg-opacity-0 backdrop-blur-md border-b">
         <div
           className="w-16 flex items-center gap-5 cursor-pointer"
           onClick={irAlInicio}

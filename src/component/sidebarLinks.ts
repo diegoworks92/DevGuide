@@ -17,32 +17,31 @@ export const reduxPaths: string[] = [
   "/redux-thunk",
 ];
 
+// Zustand: enlaces + paths
+export const zustandLinks: LinkItem[] = [{ to: "/zustand", label: "Zustand" }];
+// todas las rutas que consideras “Zustand”
+export const zustandPaths: string[] = ["/zustand"];
+
 // React Router: enlaces + paths
 export const routerLinks: LinkItem[] = [
-  { to: "/react-router", label: "Link" },
+  { to: "/react-router", label: "Basic Setup" },
+  { to: "/outlet-guide", label: "Outlet" },
   { to: "/navlink-tw", label: "NavLink + Tailwind" },
   { to: "/navlink-css", label: "NavLink + Css" },
 ];
 export const routerPaths: string[] = [
   "/react-router",
+  "/outlet-guide",
   "/navlink-tw",
   "/navlink-css",
 ];
 
 // Testing: enlace + paths
-export const testLinks: LinkItem[] = [{ to: "/test", label: "Testing" }];
+export const testLinks: LinkItem[] = [
+  { to: "/test", label: "Unit + Integration" },
+];
 export const testPaths: string[] = ["/test"];
 
-/* export const reduxLinks = [
-  { to: "/redux-toolkit", label: "Redux Toolkit" },
-  { to: "/redux-thunk", label: "Redux Thunk" },
-];
-
-export const routerLinks = [
-  { to: "/react-router", label: "Link" },
-  { to: "/navlink-tw", label: "NavLink + Tailwind" },
-  { to: "/navlink-css", label: "NavLink + Css" },
-];
-
-export const testLinks = [{ to: "/test", label: "Testing" }];
- */
+// I18next: enlace + paths
+export const i18nLinks: LinkItem[] = [{ to: "/i18n", label: "I18Next" }];
+export const i18nPaths: string[] = ["/i18n"];

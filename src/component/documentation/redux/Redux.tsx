@@ -1,147 +1,135 @@
 import CodeBlock from "../../CodeBlock";
 import Title from "../../Title";
 
-const Redux = () => {
+const ReduxToolkit = () => {
   return (
     <>
       <Title name="Redux Toolkit" />
 
       {/* Página Oficial */}
       <CodeBlock
-        title="Official Page"
+        heading="Official Page"
+        title="URL"
         code={`https://redux-toolkit.js.org/tutorials/quick-start`}
+        language="text"
       />
 
-      {/* Terminal */}
+      {/* Instalación */}
       <CodeBlock
+        heading="Install dependencies"
         title="Terminal"
         code={`npm install react-redux
 npm install @reduxjs/toolkit`}
+        language="bash"
       />
-      {/* store.ts */}
+
+      {/* Configurar el store */}
       <CodeBlock
+        heading="Configure the store"
         title="store/store.ts"
         code={`import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from "../features/counter/counterSlice";
+import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
   },
-})
+});
 
 // Infer the RootState and AppDispatch types from the store itself
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch`}
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;`}
       />
-      {/* main.tsx */}
-      <CodeBlock
-        title="main.tsx"
-        code={`import { Provider } from "react-redux";
-import { store } from "./store/store.ts";
 
-  <Provider store={store}>
-    <App />
-  </Provider>`}
-      />
-      {/* hooks.ts */}
+      {/* Proveer el store */}
       <CodeBlock
+        heading="Wrap App with Provider"
+        title="main.tsx"
+        code={`import { Provider } from 'react-redux';
+import { store } from './store/store.ts';
+
+<Provider store={store}>
+  <App />
+</Provider>`}
+      />
+
+      {/* Hooks tipados */}
+      <CodeBlock
+        heading="Create typed hooks"
         title="store/hooks.ts"
-        code={`import { useDispatch, useSelector } from "react-redux";
-import type { RootState, AppDispatch } from "./store";
+        code={`import { useDispatch, useSelector } from 'react-redux';
+import type { RootState, AppDispatch } from './store';
 
 // Use throughout your app instead of plain 'useDispatch' and 'useSelector'
-export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
-export const useAppSelector = useSelector.withTypes<RootState>();`}
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector = <T>(selector: (state: RootState) => T) =>
+  useSelector(selector);`}
       />
-      {/* counterSlice.ts */}
+
+      {/* Crear el slice */}
       <CodeBlock
+        heading="Create the slice"
         title="features/counter/counterSlice.ts"
-        code={`import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+        code={`import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface CounterState {
   value: number;
 }
 
-const initialState: CounterState = {
-  value: 0,
-};
+const initialState: CounterState = { value: 0 };
 
 export const counterSlice = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      if (state.value > 0) {
-        state.value -= 1;
-      }
-    },
+    increment: (state) => { state.value += 1 },
+    decrement: (state) => { state.value = Math.max(0, state.value - 1) },
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload;
     },
-    reset: (state) => {
-      state.value = 0;
-    },
+    reset: (state) => { state.value = 0 },
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { increment, decrement, incrementByAmount, reset } =
   counterSlice.actions;
 
-export default counterSlice.reducer;
-`}
+export default counterSlice.reducer;`}
       />
-      {/* Counter.tsx */}
+
+      {/* Componente Counter */}
       <CodeBlock
+        heading="Implement the Counter"
         title="features/counter/Counter.tsx"
-        code={`import { decrement, increment, incrementByAmount, reset } from "./counterSlice";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
+        code={`import {
+  decrement,
+  increment,
+  incrementByAmount,
+  reset,
+} from './counterSlice';
+import { useAppSelector, useAppDispatch } from '../../store/hooks';
 
 export function Counter() {
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
 
-              return (
-                <div>
-                  <span className="count">{count}</span>
-                  <div>
-                    <button
-                      aria-label="Increment value"
-                      onClick={() => dispatch(increment())}
-                    >
-                      Increment
-                    </button>
-                    <button
-                      aria-label="Decrement value"
-                      onClick={() => dispatch(decrement())}
-                    >
-                      Decrement
-                    </button>
-                    <button 
-                      aria-label="Reset counter" 
-                      onClick={() => dispatch(reset())}
-                    >
-                      Reset
-                    </button>
-                    <button 
-                      aria-label="Increase value by 2" 
-                      onClick={() => dispatch(incrementByAmount(2))}
-                    >
-                      Increase +2
-                    </button>
-                  </div>
-                </div>
-              );
-            }
-`}
+  return (
+    <div>
+      <span className="count">{count}</span>
+      <div>
+        <button onClick={() => dispatch(increment())}>Increment</button>
+        <button onClick={() => dispatch(decrement())}>Decrement</button>
+        <button onClick={() => dispatch(reset())}>Reset</button>
+        <button onClick={() => dispatch(incrementByAmount(2))}>
+          Increase +2
+        </button>
+      </div>
+    </div>
+  );
+}`}
       />
     </>
   );
 };
 
-export default Redux;
+export default ReduxToolkit;

@@ -23,7 +23,7 @@ const ResponsiveSidebar = () => {
   return (
     <div className="relative">
       <button
-        className="text-white bg-gray-700 px-3 py-2 rounded"
+        className="text-white px-3 py-2 rounded border"
         onClick={() => setIsOpen(!isOpen)}
       >
         ☰
@@ -32,7 +32,7 @@ const ResponsiveSidebar = () => {
       {isOpen && (
         <div
           ref={menuRef}
-          className="absolute right-0 mt-2 bg-gray-800 border text-white w-64 pt-4 px-10 shadow-lg z-50 rounded "
+          className="absolute right-0 mt-2 bg-[#1e1e1e] border text-white w-64 pt-4 px-10 shadow-lg z-50 rounded "
         >
           <h2 className="mb-4 -ml-4 font-bold text-lg">Documentation</h2>
           <Menu
