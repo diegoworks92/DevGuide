@@ -21,15 +21,15 @@ const Menu = ({
   // clase para cada enlace
   const classLinks = ({ isActive }: { isActive: boolean }) =>
     `pl-4 block ${
-      isActive ? "text-red-500 font-bold" : "text-gray-500"
-    } hover:text-blue-500 transition`;
-
+      isActive ? "text-[#CE9178] font-bold" : "text-[#9CDCFE]"
+    } hover:text-[#956892] transition`;
+  /*  [#4EC9B0] */
   return (
     <div className="flex flex-col mb-6">
       {/* Título del grupo: cambia de color si isActiveSection */}
       <h2
         className={`-ml-4 mb-2 text-lg font-semibold ${
-          isActiveSection ? "text-red-500" : "text-white"
+          isActiveSection ? "text-[#956892]" : "text-[#4D8ABB]"
         }`}
       >
         {title}

@@ -6,8 +6,7 @@ const ReactRouterOutletGuide = () => {
     <>
       <Title name="React Router: Layout & Outlet" />
 
-      {/* Introducción */}
-      <div className="bg-gray-800 text-white p-6 my-4 w-full max-w-full sm:max-w-3xl rounded-lg">
+      <div className="border text-white p-6 my-4 w-full max-w-full sm:max-w-3xl rounded-lg">
         <p className="text-gray-300 leading-relaxed">
           Con <code>&lt;Outlet /&gt;</code> puedes renderizar rutas hijas dentro
           de un layout compartido. Sigue estos pasos para integrarlo en tu app
@@ -15,8 +14,18 @@ const ReactRouterOutletGuide = () => {
         </p>
       </div>
 
+      {/* Introducción */}
+      <CodeBlock
+        id="introduccion"
+        heading="Introducción"
+        title="Descripción"
+        code={`Con <Outlet /> puedes renderizar rutas hijas dentro de un layout compartido.`}
+        language="text"
+      />
+
       {/* Página Oficial */}
       <CodeBlock
+        id="official-page"
         heading="Official Page"
         title="URL"
         code={`https://reactrouter.com/en/main/hooks/use-outlet`}
@@ -25,6 +34,7 @@ const ReactRouterOutletGuide = () => {
 
       {/* Crear Layout */}
       <CodeBlock
+        id="create-layout"
         heading="Create a Layout component"
         title="components/Layout.tsx"
         code={`import { Outlet } from "react-router-dom";
@@ -46,6 +56,7 @@ export default function Layout() {
 
       {/* Actualizar App.jsx */}
       <CodeBlock
+        id="wrap-with-layout"
         heading="Wrap your routes with Layout"
         title="App.jsx"
         code={`import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -72,16 +83,6 @@ function App() {
 export default App;`}
         language="tsx"
       />
-
-      {/* Nota final */}
-      <div className="bg-gray-800 text-white p-6 my-4 w-full max-w-full sm:max-w-3xl rounded-lg">
-        <p className="text-gray-300">
-          Asegúrate de eliminar el <code>&lt;NavBar /&gt;</code> directo de{" "}
-          <code>App.jsx</code>. Ahora tu navegador y cualquier footer o sidebar
-          pueden vivir en <code>Layout</code>, y las páginas hijas aparecerán
-          dentro de <code>&lt;Outlet /&gt;</code>.
-        </p>
-      </div>
     </>
   );
 };

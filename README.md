@@ -1,54 +1,21 @@
-# React + TypeScript + Vite
+🚀 React DevGuide
+A copy-and-paste library of React patterns and best practices, built on Vite + TypeScript. Spin up production-ready apps in minutes with zero boilerplate.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Live site: https://devguide.diegoworks.com/ 👨‍💻 Author: DiegoWorks | Portfolio: https://www.diegoworks.com/
 
-Currently, two official plugins are available:
+🔍 What You’ll Find
+🔧 Zero-config starter Vite + TypeScript template ready to go.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔀 Routing Declarative routes, nested layouts & <Outlet> with React Router v6.
 
-## Expanding the ESLint configuration
+🗂️ State Management Redux Toolkit slices, async Thunks & minimal Zustand hooks.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🧪 Testing Unit & integration examples using Vitest & React Testing Library.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+🌐 Data Fetching Fetch API, Axios patterns and React Query recipes.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🎨 Styling Tailwind CSS utilities, Sass partials and custom CSS snippets.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+> Every guide ships with > • Clean, commented snippets > • Clear file structure > • One-click copy button
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+⭐ More guides will be added over time! ⭐

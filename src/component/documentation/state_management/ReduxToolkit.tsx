@@ -8,6 +8,7 @@ const ReduxToolkit = () => {
 
       {/* Página Oficial */}
       <CodeBlock
+        id="official-page"
         heading="Official Page"
         title="URL"
         code={`https://redux-toolkit.js.org/tutorials/quick-start`}
@@ -16,6 +17,7 @@ const ReduxToolkit = () => {
 
       {/* Instalación */}
       <CodeBlock
+        id="install-dependencies"
         heading="Install dependencies"
         title="Terminal"
         code={`npm install react-redux
@@ -25,6 +27,7 @@ npm install @reduxjs/toolkit`}
 
       {/* Configurar el store */}
       <CodeBlock
+        id="configure-the-store"
         heading="Configure the store"
         title="store/store.ts"
         code={`import { configureStore } from '@reduxjs/toolkit'
@@ -43,6 +46,7 @@ export type AppDispatch = typeof store.dispatch;`}
 
       {/* Proveer el store */}
       <CodeBlock
+        id="wrap-app-with-provider"
         heading="Wrap App with Provider"
         title="main.tsx"
         code={`import { Provider } from 'react-redux';
@@ -55,6 +59,7 @@ import { store } from './store/store.ts';
 
       {/* Hooks tipados */}
       <CodeBlock
+        id="create-typed-hooks"
         heading="Create typed hooks"
         title="store/hooks.ts"
         code={`import { useDispatch, useSelector } from 'react-redux';
@@ -68,6 +73,7 @@ export const useAppSelector = <T>(selector: (state: RootState) => T) =>
 
       {/* Crear el slice */}
       <CodeBlock
+        id="create-the-slice"
         heading="Create the slice"
         title="features/counter/counterSlice.ts"
         code={`import { createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -99,6 +105,7 @@ export default counterSlice.reducer;`}
 
       {/* Componente Counter */}
       <CodeBlock
+        id="implement-the-counter"
         heading="Implement the Counter"
         title="features/counter/Counter.tsx"
         code={`import {

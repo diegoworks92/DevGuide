@@ -6,24 +6,27 @@ const Test = () => {
     <>
       <Title name="Unit Tests and Integration Tests" />
 
-      {/* Página Oficial */}
+      {/* Página oficial */}
       <CodeBlock
+        id="official-page"
         heading="Official Page"
         title="URL"
         code={`https://testing-library.com/docs/user-event/install`}
         language="text"
       />
 
-      {/* Instalación */}
+      {/* Instalación de dependencias */}
       <CodeBlock
+        id="install-dependencies"
         heading="Install dependencies"
         title="Terminal"
         code={`npm install --save-dev vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event`}
         language="bash"
       />
 
-      {/* Script de testeo */}
+      {/* Script de test en package.json */}
       <CodeBlock
+        id="add-test-script"
         heading="Add test script"
         title="package.json"
         code={`"scripts": {
@@ -32,8 +35,9 @@ const Test = () => {
         language="json"
       />
 
-      {/* Configuración de Vitest */}
+      {/* Configuración del entorno de Vitest */}
       <CodeBlock
+        id="setup-vitest-environment"
         heading="Setup Vitest environment"
         title="vitest.setup.js"
         code={`import { expect, afterEach } from 'vitest';
@@ -47,8 +51,9 @@ afterEach(() => {
 });`}
       />
 
-      {/* Tipado para los tests */}
+      {/* Tipado de TS para testing */}
       <CodeBlock
+        id="extend-ts-types"
         heading="Extend TS types for testing"
         title="tsconfig.json"
         code={`{
@@ -64,8 +69,9 @@ afterEach(() => {
         language="json"
       />
 
-      {/* Integración con Vite */}
+      {/* Configuración de Vite con Vitest */}
       <CodeBlock
+        id="configure-vite-with-vitest"
         heading="Configure Vite with Vitest"
         title="vite.config.ts"
         code={`import { defineConfig } from "vitest/config";
@@ -83,8 +89,9 @@ export default defineConfig({
         language="ts"
       />
 
-      {/* Prueba de integración del Counter */}
+      {/* Test de integración del componente Counter con Redux */}
       <CodeBlock
+        id="test-component-with-redux"
         heading="Test component with Redux"
         title="src/test/Counter.test.tsx"
         code={`import { describe, it, expect, beforeEach } from "vitest";
@@ -125,8 +132,8 @@ describe("<Counter />", () => {
     const incrementButton = screen.getByRole("button", { name: /Increment/i });
     const decrementButton = screen.getByRole("button", { name: /Decrement/i });
 
-    await userEvent.click(incrementButton); // Contador en 1
-    await userEvent.click(decrementButton); // Contador en 0
+    await userEvent.click(incrementButton);
+    await userEvent.click(decrementButton);
     expect(screen.getByText("0")).toBeInTheDocument();
   });
 
@@ -134,8 +141,8 @@ describe("<Counter />", () => {
     const incrementButton = screen.getByRole("button", { name: /Increment/i });
     const resetButton = screen.getByRole("button", { name: /Reset counter/i });
 
-    await userEvent.click(incrementButton); // Contador en 1
-    await userEvent.click(resetButton); // Contador en 0
+    await userEvent.click(incrementButton);
+    await userEvent.click(resetButton);
     expect(screen.getByText("0")).toBeInTheDocument();
   });
 
@@ -147,7 +154,7 @@ describe("<Counter />", () => {
     await userEvent.click(increaseButton);
     expect(screen.getByText("2")).toBeInTheDocument();
   });
-});`}
+}`}
       />
     </>
   );

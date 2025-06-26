@@ -8,6 +8,7 @@ const ZustandGuide = () => {
 
       {/* Página Oficial */}
       <CodeBlock
+        id="official-page"
         heading="Official Page"
         title="URL"
         code={`https://docs.pmnd.rs/zustand/getting-started/introduction`}
@@ -16,6 +17,7 @@ const ZustandGuide = () => {
 
       {/* Instalación */}
       <CodeBlock
+        id="install-dependency"
         heading="Install dependency"
         title="Terminal"
         code={`npm install zustand`}
@@ -24,6 +26,7 @@ const ZustandGuide = () => {
 
       {/* Crear el store */}
       <CodeBlock
+        id="create-the-store"
         heading="Create the store"
         title="store/useStore.ts"
         code={`import create from "zustand";
@@ -42,6 +45,7 @@ export const useStore = create<BearState>((set) => ({
 
       {/* Usar el store en un componente */}
       <CodeBlock
+        id="use-the-store-in-component"
         heading="Use the store in a component"
         title="components/BearCounter.tsx"
         code={`import React from "react";
@@ -68,6 +72,7 @@ export function BearCounter() {
 
       {/* Persistencia (opcional) */}
       <CodeBlock
+        id="persist-state"
         heading="Persist state"
         title="store/useStore.ts"
         code={`import create from "zustand";

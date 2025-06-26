@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Title from "./Title";
 
 const StartScreen = () => {
@@ -5,7 +6,7 @@ const StartScreen = () => {
     <>
       <Title name="Home" />
 
-      <div className="bg-gray-800 text-white p-8 my-6 w-full max-w-full sm:max-w-3xl rounded-lg">
+      <div className="text-white p-8 my-6 w-full max-w-full sm:max-w-3xl rounded-lg border">
         <h2 className="text-center text-3xl font-bold mb-6">
           Welcome to React Guides!
         </h2>
@@ -13,21 +14,20 @@ const StartScreen = () => {
         <p className="mb-4 text-gray-300 leading-relaxed">
           This platform is your go-to companion for speeding up React app
           development. You’ll find practical guides, ready-to-copy examples, and
-          optimized configurations so you can dive straight into building
+          optimized configurations so you can jump straight into building
           without the initial setup headaches.
         </p>
 
         <p className="mb-4 text-gray-300 leading-relaxed">
           Explore each section to master key parts of the modern stack:
         </p>
-
         <ul className="list-disc list-inside text-gray-300 mb-6 space-y-2">
           <li>🚀 Set up a React, Vite & TypeScript project</li>
           <li>🔀 Declarative routing with React Router</li>
-          <li>🧩 State management with Redux Toolkit & Async Thunk</li>
+          <li>🧩 State management with Redux Toolkit & Async Thunks</li>
           <li>🧪 Unit and integration testing with Vitest & Testing Library</li>
-          <li>🎨 Styling with Tailwind CSS and custom CSS classes</li>
-          <li>🛠️ Sass integration, custom components, and more</li>
+          <li>🎨 Styling with Tailwind CSS, custom CSS, and Sass</li>
+          <li>🛠️ Data fetching examples with Fetch, Axios & React Query</li>
         </ul>
 
         <p className="mb-4 text-gray-300 leading-relaxed">
@@ -39,11 +39,176 @@ const StartScreen = () => {
           <li>✔️ Step-by-step instructions you can follow in your project</li>
         </ul>
 
-        {/* Small screens */}
-        <p className="text-center text-gray-400 text-sm mb-2 xl:hidden">
-          Navigate from the menu to access guides and examples.
+        <p className="mb-6 text-gray-300 leading-relaxed">Available guides:</p>
+
+        {/* State Management */}
+        <div className="mb-4">
+          <h3 className="text-xl text-[#4EC9B0] font-semibold mb-2">
+            State Management
+          </h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-300">
+            <li>
+              <NavLink
+                to="/redux-toolkit"
+                className="text-[#CE9178] hover:underline"
+              >
+                Redux Toolkit
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/redux-thunk"
+                className="text-[#CE9178] hover:underline"
+              >
+                Redux Thunk
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/zustand" className="text-[#CE9178] hover:underline">
+                Zustand
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* React Router */}
+        <div className="mb-4">
+          <h3 className="text-xl text-[#9CDCFE] font-semibold mb-2">
+            React Router
+          </h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-300">
+            <li>
+              <NavLink
+                to="/react-router"
+                className="text-[#4D8ABB] hover:underline"
+              >
+                Basic Setup
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/react-router-outlet"
+                className="text-[#4D8ABB] hover:underline"
+              >
+                Outlet
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/navlink-tw"
+                className="text-[#4D8ABB] hover:underline"
+              >
+                NavLink + Tailwind
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/navlink-css"
+                className="text-[#4D8ABB] hover:underline"
+              >
+                NavLink + CSS
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Testing */}
+        <div className="mb-4">
+          <h3 className="text-xl text-[#956892] font-semibold mb-2">Testing</h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-300">
+            <li>
+              <NavLink to="/test" className="text-[#956892] hover:underline">
+                Unit & Integration Tests
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* I18n */}
+        <div className="mb-4">
+          <h3 className="text-xl text-[#4D8ABB] font-semibold mb-2">I18n</h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-300">
+            <li>
+              <NavLink to="/i18n" className="text-[#4D8ABB] hover:underline">
+                React-i18next
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Data Fetching */}
+        <div className="mb-4">
+          <h3 className="text-xl text-[#6A9955] font-semibold mb-2">
+            Data Fetching
+          </h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-300">
+            <li>
+              <NavLink
+                to="/basic-fetch"
+                className="text-[#6A9955] hover:underline"
+              >
+                Basic Fetch
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/advanced-fetch"
+                className="text-[#6A9955] hover:underline"
+              >
+                Advanced Fetch
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/react-query"
+                className="text-[#6A9955] hover:underline"
+              >
+                React Query
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/axios" className="text-[#6A9955] hover:underline">
+                Axios
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Styling */}
+        <div className="mb-6">
+          <h3 className="text-xl text-[#CE9178] font-semibold mb-2">Styling</h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-300">
+            <li>
+              <NavLink to="/sass" className="text-[#CE9178] hover:underline">
+                Sass
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Portfolio */}
+        <p className="mb-4 text-gray-300 leading-relaxed">
+          🌐 Check out my portfolio at{" "}
+          <a
+            href="https://www.diegoworks.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#9CDCFE] underline"
+          >
+            diegoworks.com
+          </a>
+          .
         </p>
-        {/* XL and up */}
+
+        {/* Coming soon note */}
+        <p className="text-gray-400 italic mb-4">
+          📌 More guides will be added here over time.
+        </p>
+
+        {/* Responsive hints */}
+        <p className="text-center text-gray-400 text-sm mb-2 xl:hidden">
+          Navigate using the menu to access all guides.
+        </p>
         <p className="text-center text-gray-400 text-sm hidden xl:block">
           Use the sidebar to explore the guides. Each section offers
           ready-to-copy snippets you can try instantly.

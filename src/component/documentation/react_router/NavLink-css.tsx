@@ -6,24 +6,27 @@ const NavLinkCss = () => {
     <>
       <Title name="NavLink Css" />
 
-      {/* Página Oficial */}
+      {/* Página oficial */}
       <CodeBlock
+        id="official-page"
         heading="Official Page"
         title="Declarative Installation"
         code={`https://reactrouter.com/start/declarative/installation`}
         language="text"
       />
 
-      {/* Instalación */}
+      {/* Instalación del paquete */}
       <CodeBlock
+        id="install-package"
         heading="Install the package"
         title="Terminal"
         code={`npm install react-router-dom`}
         language="bash"
       />
 
-      {/* Envolver la App */}
+      {/* Envolver con BrowserRouter */}
       <CodeBlock
+        id="wrap-with-browserrouter"
         heading="Wrap with BrowserRouter"
         title="main.jsx"
         code={`import { BrowserRouter } from "react-router-dom";
@@ -35,6 +38,7 @@ const NavLinkCss = () => {
 
       {/* Definir rutas */}
       <CodeBlock
+        id="define-routes"
         heading="Define Routes"
         title="App.jsx"
         code={`import { Routes, Route } from "react-router-dom";
@@ -45,8 +49,9 @@ const NavLinkCss = () => {
 </Routes>`}
       />
 
-      {/* Crear NavBar con NavLink + clases CSS */}
+      {/* Crear NavBar con NavLink y clases CSS */}
       <CodeBlock
+        id="create-navigation-with-css"
         heading="Create navigation with NavLink + CSS classes"
         title="NavBar.tsx"
         code={`import { NavLink } from "react-router-dom";
@@ -74,6 +79,7 @@ const NavLinkCss = () => {
 
       {/* Estilos CSS */}
       <CodeBlock
+        id="style-with-css"
         heading="Style with CSS"
         title="index.css"
         code={`.enlace {
@@ -94,8 +100,9 @@ const NavLinkCss = () => {
         language="css"
       />
 
-      {/* Ruta 404 */}
+      {/* Ruta de fallback */}
       <CodeBlock
+        id="fallback-route"
         heading="Fallback route"
         title="404"
         code={`<Route path="*" element={<NotFound />} />`}

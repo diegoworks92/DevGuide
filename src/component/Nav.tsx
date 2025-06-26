@@ -1,6 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom";
 import ResponsiveSidebar from "./ResponsiveSidebar";
-import { reduxPaths, routerPaths, testPaths } from "./sidebarLinks";
+import {
+  stateManagementPaths,
+  routerPaths,
+  testPaths,
+  i18nPaths,
+  dataFetchingPaths,
+  stylingPaths,
+} from "./sidebarLinks";
 
 const Nav = () => {
   const irAlInicio = () => {
@@ -9,12 +16,10 @@ const Nav = () => {
 
   const { pathname } = useLocation();
   const classLinks = (active: boolean) =>
-    `mx-4 ${active ? "text-red-500 font-bold" : "text-gray-200"}`;
+    `mx-4 ${
+      active ? "text-[#CE9178] font-bold" : "text-[#4D8ABB]"
+    } hover:text-[#956892] transition`;
 
-  /*   const classLinks = ({ isActive }: { isActive: boolean }) =>
-    ` ${
-      isActive ? "text-red-500 font-bold" : "text-gray-500"
-    } hover:text-blue-500 transition duration-300`; */
   return (
     <header className={`z-50 flex flex-nowrap justify-around pb-10`}>
       <nav className="fixed bg-[#1E1E1E] gap-36 sm:gap-96 lg:gap-52 w-full top-0 flex justify-around items-center py-3 z-20  bg-opacity-0 backdrop-blur-md border-b">
@@ -27,31 +32,57 @@ const Nav = () => {
             alt="Profile Picture"
             className={`rounded-full left-0 w-10 `}
           />
-          <p className="whitespace-nowrap text-xl font-bold">
-            DevGuide DiegoWorks
+          <p className="whitespace-nowrap sm:text-xl font-bold">
+            DiegoWorks | DevGuide
           </p>
         </div>
-        <div className="hidden lg:flex gap-2">
+        <div className="hidden xl:flex gap-2">
           <NavLink to="/" className={({ isActive }) => classLinks(isActive)}>
             Home
           </NavLink>
+
           <NavLink
-            to="/redux"
-            className={() => classLinks(reduxPaths.includes(pathname))}
+            to="/redux-toolkit"
+            className={() =>
+              classLinks(stateManagementPaths.includes(pathname))
+            }
           >
-            Redux
+            State Management
           </NavLink>
+
+          <NavLink
+            to="/react-router"
+            className={() => classLinks(routerPaths.includes(pathname))}
+          >
+            Router
+          </NavLink>
+
           <NavLink
             to="/test"
             className={() => classLinks(testPaths.includes(pathname))}
           >
             Testing
           </NavLink>
+
           <NavLink
-            to="/react-router"
-            className={() => classLinks(routerPaths.includes(pathname))}
+            to="/i18n"
+            className={() => classLinks(i18nPaths.includes(pathname))}
           >
-            Router
+            I18n
+          </NavLink>
+
+          <NavLink
+            to="/basic-fetch"
+            className={() => classLinks(dataFetchingPaths.includes(pathname))}
+          >
+            Data Fetching
+          </NavLink>
+
+          <NavLink
+            to="/sass"
+            className={() => classLinks(stylingPaths.includes(pathname))}
+          >
+            Styling
           </NavLink>
         </div>
 

@@ -8,6 +8,7 @@ const I18nGuide = () => {
 
       {/* Página Oficial */}
       <CodeBlock
+        id="official-page"
         heading="Official Page"
         title="URL"
         code={`https://react.i18next.com/`}
@@ -16,6 +17,7 @@ const I18nGuide = () => {
 
       {/* Instalación */}
       <CodeBlock
+        id="install-dependencies"
         heading="Install dependencies"
         title="Terminal"
         code={`npm install i18next react-i18next i18next-browser-languagedetector i18next-http-backend`}
@@ -24,6 +26,7 @@ const I18nGuide = () => {
 
       {/* Inicializar i18n */}
       <CodeBlock
+        id="initialize-i18n"
         heading="Initialize i18n"
         title="src/i18n.ts"
         code={`import i18n from 'i18next';
@@ -32,9 +35,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend';
 
 i18n
-  .use(HttpBackend)                // carga archivos de traducción vía HTTP
-  .use(LanguageDetector)           // detecta el idioma del usuario
-  .use(initReactI18next)           // conecta con React
+  .use(HttpBackend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     debug: true,
@@ -50,6 +53,7 @@ export default i18n;`}
 
       {/* Archivos de traducción */}
       <CodeBlock
+        id="add-translation-file-en"
         heading="Add translation file"
         title="public/locales/en/translation.json"
         code={`{
@@ -58,8 +62,8 @@ export default i18n;`}
 }`}
         language="json"
       />
-
       <CodeBlock
+        id="add-translation-file-es"
         heading="Add translation file"
         title="public/locales/es/translation.json"
         code={`{
@@ -71,12 +75,13 @@ export default i18n;`}
 
       {/* Envolver la App */}
       <CodeBlock
+        id="wrap-app-with-suspense"
         heading="Wrap App with Suspense"
         title="src/index.tsx"
         code={`import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './i18n';  // importa la configuración de i18n
+import './i18n';
 
 ReactDOM.render(
   <Suspense fallback={<div>Loading translations...</div>}>
@@ -89,6 +94,7 @@ ReactDOM.render(
 
       {/* Usar traducciones en componentes */}
       <CodeBlock
+        id="use-translations-in-components"
         heading="Use translations in components"
         title="components/Greeting.tsx"
         code={`import React from 'react';
@@ -119,6 +125,7 @@ export default function Greeting() {
 
       {/* Extra: Automatic language detection */}
       <CodeBlock
+        id="extra-automatic-language-detection"
         heading="Extra: Automatic language detection"
         title="src/i18n.ts"
         code={`// i18next-browser-languagedetector ya está configurado

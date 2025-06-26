@@ -8,38 +8,41 @@ const ReduxThunk = () => {
 
       {/* Página Oficial */}
       <CodeBlock
+        id="thunk-official-page"
         heading="Official Page"
         title="URL"
         code={`https://redux.js.org/usage/writing-logic-thunks`}
         language="text"
       />
 
-      {/* Terminal */}
+      {/* Instalación */}
       <CodeBlock
+        id="thunk-install-dependencies"
         heading="Install Redux Toolkit and React-Redux"
         title="Terminal"
-        code={`npm install @reduxjs/toolkit react-redux
-`}
+        code={`npm install @reduxjs/toolkit react-redux`}
       />
 
-      {/* store.ts */}
+      {/* Crear el thunk asíncrono */}
       <CodeBlock
+        id="create-async-thunk"
         heading="Create the async thunk"
         title="features/users/usersThunks.ts"
         code={`import { createAsyncThunk } from "@reduxjs/toolkit";
 
-    export const fetchUserById = createAsyncThunk(
-      "users/fetchById",
-         async (userId: number) => {
-        const response = await fetch(\`https://jsonplaceholder.typicode.com/users/\${userId}\`);
-        if (!response.ok) throw new Error("Error fetching user");
-        return await response.json();
-      }
-    );`}
+export const fetchUserById = createAsyncThunk(
+  "users/fetchById",
+  async (userId: number) => {
+    const response = await fetch(\`https://jsonplaceholder.typicode.com/users/\${userId}\`);
+    if (!response.ok) throw new Error("Error fetching user");
+    return await response.json();
+  }
+);`}
       />
 
-      {/* main.tsx */}
+      {/* Crear el slice */}
       <CodeBlock
+        id="create-slice-for-thunk"
         heading="Create the slice"
         title="features/users/usersSlice.ts"
         code={`import { createSlice } from "@reduxjs/toolkit";
@@ -81,8 +84,9 @@ const usersSlice = createSlice({
 export default usersSlice.reducer;`}
       />
 
-      {/* store.ts */}
+      {/* Configurar la store */}
       <CodeBlock
+        id="thunk-configure-store"
         heading="Configure the store"
         title="store.ts"
         code={`import { configureStore } from "@reduxjs/toolkit";
@@ -95,8 +99,9 @@ export const store = configureStore({
 });`}
       />
 
-      {/* components/UserProfile.tsx */}
+      {/* Usar en un componente */}
       <CodeBlock
+        id="use-thunk-in-component"
         heading="Use it inside a component"
         title="components/UserProfile.tsx"
         code={`import { useEffect } from "react";
