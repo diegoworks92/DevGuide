@@ -6,14 +6,6 @@ const ReactRouterOutletGuide = () => {
     <>
       <Title name="React Router: Layout & Outlet" />
 
-      <div className="border text-white p-6 my-4 w-full max-w-full sm:max-w-3xl rounded-lg">
-        <p className="text-gray-300 leading-relaxed">
-          Con <code>&lt;Outlet /&gt;</code> puedes renderizar rutas hijas dentro
-          de un layout compartido. Sigue estos pasos para integrarlo en tu app
-          sin alterar el flujo básico.
-        </p>
-      </div>
-
       {/* Introducción */}
       <CodeBlock
         id="introduccion"
@@ -67,16 +59,14 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* Rutas hijas se renderizan en <Outlet /> */}
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* Rutas hijas se renderizan en <Outlet /> */}
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

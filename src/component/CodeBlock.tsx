@@ -3,12 +3,14 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MdContentCopy } from "react-icons/md";
 import { useToc } from "./toc/useToc";
+
 interface CodeBlockProps {
   heading?: string;
   title: string;
   code: string;
   id?: string;
   language?: string;
+  description?: string;
 }
 
 const CodeBlock = ({
@@ -16,11 +18,12 @@ const CodeBlock = ({
   title,
   code,
   id,
+  description,
   language = "typescript",
 }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
-
   const { register } = useToc();
+
   useEffect(() => {
     if (id && heading) register({ id, heading });
   }, [id, heading, register]);
@@ -41,7 +44,10 @@ const CodeBlock = ({
           {heading}
         </h2>
       )}
-      <div className=" text-white p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
+
+      {description && <p className="mt-2 mb-4 text-gray-300">{description}</p>}
+
+      <div className="text-white p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
         <div className="flex justify-between items-center mb-2 gap-2">
           <span className="text-sm text-[#6A9955] font-mono">{title}</span>
           <button
@@ -52,7 +58,6 @@ const CodeBlock = ({
           </button>
         </div>
 
-        {/* Snippet de código */}
         <SyntaxHighlighter
           language={language}
           style={vscDarkPlus}
@@ -68,7 +73,7 @@ const CodeBlock = ({
 export default CodeBlock;
 
 {
-  /* <CodeBlock heading="" title="" code={``} />; */
+  /* <CodeBlock description="" heading="" title="" code={``} />; */
 }
 
 /* 

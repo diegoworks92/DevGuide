@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Title from "./Title";
-
+import reactLogo from "../assets/react.svg";
 const StartScreen = () => {
   return (
     <>
@@ -10,7 +10,13 @@ const StartScreen = () => {
         <h2 className="text-center text-3xl font-bold mb-6">
           Welcome to React Guides!
         </h2>
-
+        <a href="https://react.dev" target="_blank">
+          <img
+            src={reactLogo}
+            className="h-24 p-6 transition-[filter] duration-300 hover:drop-shadow-[0_0_2em_#61dafbaa] will-change-[filter] animate-[logo-spin_20s_linear_infinite] motion-reduce:animate-none"
+            alt="React logo"
+          />
+        </a>
         <p className="mb-4 text-gray-300 leading-relaxed">
           This platform is your go-to companion for speeding up React app
           development. You’ll find practical guides, ready-to-copy examples, and

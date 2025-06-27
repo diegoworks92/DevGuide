@@ -43,10 +43,20 @@ const ReactRouter = () => {
         title="App.jsx"
         code={`import { Routes, Route } from "react-router-dom";
 
-<Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/about" element={<About />} />
-</Routes>`}
+function App() {
+  return (
+    <>
+      <NavBar />
+      <h1>React Router</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+}
+`}
       />
 
       {/* Crear NavBar con enlaces */}
@@ -56,11 +66,19 @@ const ReactRouter = () => {
         title="NavBar.tsx"
         code={`import { Link } from "react-router-dom";
 
-<nav>
-  <Link to="/">Inicio</Link>
-  <Link to="/servicios">Servicios</Link>
-  <Link to="/contacto">Contacto</Link>
-</nav>`}
+const NavBar = () => {
+  return (
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+    </nav>
+  );
+};
+
+export default NavBar;
+
+
+`}
       />
 
       {/* Ruta de fallback (404) */}

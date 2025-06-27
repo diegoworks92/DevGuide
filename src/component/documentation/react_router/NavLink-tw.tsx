@@ -56,25 +56,31 @@ const NavLinkTw = () => {
         title="NavBar.tsx"
         code={`import { NavLink } from "react-router-dom";
 
-<nav>
-  <NavLink
-    to="/"
-    className={({ isActive }) =>
-      isActive ? "text-blue-500 font-bold" : "text-gray-500"
-    }
-  >
-    Inicio
-  </NavLink>
+const NavBar = () => {
+  return (
+    <nav>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "text-blue-500 font-bold" : "text-gray-500"
+        }
+      >
+        Home
+      </NavLink>
 
-  <NavLink
-    to="/contacto"
-    className={({ isActive }) =>
-      isActive ? "text-blue-500 font-bold" : "text-gray-500"
-    }
-  >
-    Contacto
-  </NavLink>
-</nav>`}
+      <NavLink
+        to="/contacto"
+        className={({ isActive }) =>
+          isActive ? "text-blue-500 font-bold" : "text-gray-500"
+        }
+      >
+        About
+      </NavLink>
+    </nav>
+  );
+};
+
+      export default NavBar;`}
       />
 
       {/* Ruta de fallback */}

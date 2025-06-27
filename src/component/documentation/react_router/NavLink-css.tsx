@@ -56,25 +56,29 @@ const NavLinkCss = () => {
         title="NavBar.tsx"
         code={`import { NavLink } from "react-router-dom";
 
-<nav>
-  <NavLink
-    to="/"
-    className={({ isActive }) =>
-      "enlace px-2 " + (isActive ? "activo" : "")
-    }
-  >
-    Inicio
-  </NavLink>
+const NavBar = () => {
+  return (
+    <nav>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          "enlace px-2 " + (isActive ? "activo" : "")
+        }
+      >
+        Home
+      </NavLink>
 
-  <NavLink
-    to="/about"
-    className={({ isActive }) =>
-      "enlace px-2 " + (isActive ? "activo" : "")
-    }
-  >
-    Acerca de
-  </NavLink>
-</nav>`}
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          "enlace px-2 " + (isActive ? "activo" : "")
+        }
+      >
+        About
+      </NavLink>
+    </nav>
+  );
+};`}
       />
 
       {/* Estilos CSS */}

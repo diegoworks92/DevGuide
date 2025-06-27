@@ -6,131 +6,135 @@ const I18nGuide = () => {
     <>
       <Title name="React Internationalization (i18n)" />
 
-      {/* Página Oficial */}
+      <p className="mb-4 text-gray-300">
+        Organiza tus traducciones y elige entre carga dinámica (HTTP backend) o
+        estática (imports).
+      </p>
+
       <CodeBlock
         id="official-page"
-        heading="Official Page"
-        title="URL"
+        heading="Página oficial"
+        description="Consulta la guía y ejemplos en la web oficial."
+        title="react.i18next.com"
         code={`https://react.i18next.com/`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="install-dependencies"
-        heading="Install dependencies"
+        heading="Instalar dependencias"
+        description="Añade i18next, bindings y detectores de idioma."
         title="Terminal"
         code={`npm install i18next react-i18next i18next-browser-languagedetector i18next-http-backend`}
         language="bash"
       />
 
-      {/* Inicializar i18n */}
       <CodeBlock
         id="initialize-i18n"
-        heading="Initialize i18n"
+        heading="Inicializar i18n (HTTP backend)"
+        description="Configura carga dinámica de JSON y detección de idioma."
         title="src/i18n.ts"
         code={`import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
-  .use(HttpBackend)
-  .use(LanguageDetector)
+  .use(HttpBackend)            // carga archivos JSON desde public/locales
+  .use(LanguageDetector)       // detecta idioma del navegador
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     debug: true,
     interpolation: { escapeValue: false },
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-    },
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
+    }
   });
 
 export default i18n;`}
         language="ts"
       />
 
-      {/* Archivos de traducción */}
       <CodeBlock
-        id="add-translation-file-en"
-        heading="Add translation file"
+        id="translation-json"
+        heading="Archivos de traducción"
+        description="Coloca tus JSON en public/locales/{lng}/translation.json."
         title="public/locales/en/translation.json"
         code={`{
   "welcome": "Welcome",
-  "description": "This application is internationalized."
-}`}
-        language="json"
-      />
-      <CodeBlock
-        id="add-translation-file-es"
-        heading="Add translation file"
-        title="public/locales/es/translation.json"
-        code={`{
-  "welcome": "Bienvenido",
-  "description": "Esta aplicación está internacionalizada."
+  "description": "This app is internationalized."
 }`}
         language="json"
       />
 
-      {/* Envolver la App */}
       <CodeBlock
         id="wrap-app-with-suspense"
-        heading="Wrap App with Suspense"
+        heading="Envolver la App"
+        description="Carga traducciones antes de renderizar tu App."
         title="src/index.tsx"
         code={`import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import './i18n';
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <Suspense fallback={<div>Loading translations...</div>}>
     <App />
-  </Suspense>,
-  document.getElementById('root')
+  </Suspense>
 );`}
         language="tsx"
       />
 
-      {/* Usar traducciones en componentes */}
       <CodeBlock
-        id="use-translations-in-components"
-        heading="Use translations in components"
-        title="components/Greeting.tsx"
+        id="use-translations"
+        heading="Usar traducciones"
+        description="Recupera textos y cambia idioma con useTranslation."
+        title="src/components/Greeting.tsx"
         code={`import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Greeting() {
   const { t, i18n } = useTranslation();
 
-  const switchTo = (lang: string) => {
-    i18n.changeLanguage(lang);
-  };
-
   return (
-    <div className="p-4 bg-white rounded shadow">
-      <h1 className="text-2xl font-bold mb-2">{t('welcome')}</h1>
-      <p className="mb-4">{t('description')}</p>
-      <button onClick={() => switchTo('en')} className="mr-2 px-3 py-1 bg-blue-500 text-white rounded">
-        English
-      </button>
-      <button onClick={() => switchTo('es')} className="px-3 py-1 bg-green-500 text-white rounded">
-        Español
-      </button>
+    <div>
+      <h1>{t('welcome')}</h1>
+      <p>{t('description')}</p>
+      <button onClick={() => i18n.changeLanguage('en')}>EN</button>
+      <button onClick={() => i18n.changeLanguage('es')}>ES</button>
     </div>
   );
 }`}
         language="tsx"
       />
 
-      {/* Extra: Automatic language detection */}
       <CodeBlock
-        id="extra-automatic-language-detection"
-        heading="Extra: Automatic language detection"
+        id="static-import"
+        heading="Import estático (opcional)"
+        description="Administra tus traducciones en React con i18next utilizando dos enfoques: 
+        • Carga dinámica desde public/locales usando i18next-http-backend (ideal si quieres editar las traducciones sin recompilar). 
+        • Importación estática desde src/locales, recomendada si prefieres incluir los textos en el bundle final. 
+        En este caso, debes eliminar i18next-http-backend y configurar i18n.ts de esta forma:"
         title="src/i18n.ts"
-        code={`// i18next-browser-languagedetector ya está configurado
-// Detecta idioma desde: querystring, cookie, localStorage, navigator, htmlTag…`}
-        language="text"
+        code={`import i18n from 'i18next';
+      import { initReactI18next } from 'react-i18next';
+      import en from './locales/en.json';
+      import es from './locales/es.json';
+
+      i18n
+        .use(initReactI18next)
+        .init({
+          resources: {
+            en: { translation: en },
+            es: { translation: es }
+          },
+          fallbackLng: 'en',
+          debug: false
+        });
+
+      export default i18n;`}
+        language="ts"
       />
     </>
   );

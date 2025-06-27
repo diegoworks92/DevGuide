@@ -6,34 +6,54 @@ const SassGuide = () => {
     <>
       <Title name="Sass" />
 
-      {/* Official Docs */}
       <CodeBlock
         id="official-docs"
-        heading="Official Docs"
-        title="Sass Documentation"
+        heading="Documentación oficial"
+        description="Consulta la documentación oficial de Sass."
+        title="sass-lang.com/docs"
         code={`https://sass-lang.com/documentation`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="install-sass"
-        heading="Install Sass"
+        heading="Instalar Sass"
+        description="Agrega Sass como dependencia de desarrollo."
         title="Terminal"
         code={`npm install -D sass`}
         language="bash"
       />
 
-      {/* Archivo global SCSS */}
       <CodeBlock
-        id="global-scss-file"
-        heading="Create a global SCSS file"
-        title="src/index.scss"
+        id="variables"
+        heading="Variables y mixins"
+        description="Define variables compartidas y mixins reutilizables."
+        title="src/styles/_variables.scss"
         code={`$primary-color: #3490dc;
-$font-stack: Helvetica, sans-serif;
+$spacing-unit: 1rem;
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px
+);
+
+@mixin respond-to($bp) {
+  @media (min-width: map-get($breakpoints, $bp)) {
+    @content;
+  }
+}`}
+        language="scss"
+      />
+
+      <CodeBlock
+        id="global-scss"
+        heading="Estilos globales"
+        description="Crea tu archivo global SCSS reemplazando index.css."
+        title="src/index.scss"
+        code={`@import './styles/variables';
 
 body {
-  font-family: $font-stack;
+  font-family: Helvetica, sans-serif;
   background: #f8fafc;
   color: #334155;
 }
@@ -43,28 +63,34 @@ a {
   &:hover {
     color: darken($primary-color, 10%);
   }
+}
+
+.container {
+  margin: $spacing-unit;
+  @include respond-to(md) {
+    margin: $spacing-unit * 2;
+  }
 }`}
         language="scss"
       />
 
-      {/* Importar el SCSS */}
       <CodeBlock
         id="import-scss"
-        heading="Import your SCSS"
+        heading="Importar SCSS"
+        description="Importa los estilos globales en el punto de entrada."
         title="src/main.tsx"
-        code={`import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.scss';`}
+        code={`import './index.scss';`}
         language="tsx"
       />
 
-      {/* CSS Modules con SCSS */}
       <CodeBlock
         id="scss-module"
-        heading="Create a component-level SCSS module"
-        title="src/components/Button.module.scss"
-        code={`.button {
+        heading="Módulo SCSS por componente"
+        description="Coloca módulos SCSS de interfaz en la carpeta ui."
+        title="src/ui/Button.module.scss"
+        code={`@import "../styles/variables";
+          
+.button {
   background: $primary-color;
   padding: 0.5rem 1rem;
   border: none;
@@ -78,10 +104,12 @@ import './index.scss';`}
 }`}
         language="scss"
       />
+
       <CodeBlock
         id="use-scss-module"
-        heading="Use the SCSS module in your component"
-        title="src/components/Button.tsx"
+        heading="Usar módulo SCSS"
+        description="Importa el módulo y aplica su clase en el componente."
+        title="src/ui/Button.tsx"
         code={`import React from 'react';
 import styles from './Button.module.scss';
 
@@ -100,59 +128,45 @@ export default function Button({ onClick, children }: ButtonProps) {
         language="tsx"
       />
 
-      {/* Variables y Mixins */}
-      <CodeBlock
-        id="define-variables-mixins"
-        heading="Define variables & mixins"
-        title="src/styles/_variables.scss"
-        code={`$spacing-unit: 1rem;
-$breakpoints: (
-  sm: 640px,
-  md: 768px,
-  lg: 1024px
-);
-
-@mixin respond-to($breakpoint) {
-  @media (min-width: map-get($breakpoints, $breakpoint)) {
-    @content;
-  }
-}`}
-        language="scss"
-      />
-      <CodeBlock
-        id="consume-variables-mixins"
-        heading="Consume variables & mixins"
-        title="src/index.scss"
-        code={`@import './styles/variables';
-
-.container {
-  margin: $spacing-unit;
-
-  @include respond-to(md) {
-    margin: $spacing-unit * 2;
-  }
-}`}
-        language="scss"
-      />
-
-      {/* Opcional: PostCSS y Autoprefixer */}
       <CodeBlock
         id="postcss-autoprefixer"
-        heading="Optional: Add PostCSS & Autoprefixer"
+        heading="PostCSS y Autoprefixer"
+        description="Configura PostCSS con Autoprefixer para añadir prefijos CSS según navegador."
         title="vite.config.ts"
         code={`import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import autoprefixer from 'autoprefixer';
+      import react from '@vitejs/plugin-react';
+      // instala primero: npm install -D autoprefixer postcss
+      import autoprefixer from 'autoprefixer';
 
-export default defineConfig({
-  plugins: [react()],
-  css: {
-    postcss: {
-      plugins: [autoprefixer()],
-    },
-  },
-});`}
+      export default defineConfig({
+        plugins: [react()],
+        css: {
+          postcss: {
+            plugins: [autoprefixer()],
+          },
+        },
+      });`}
         language="ts"
+      />
+
+      <CodeBlock
+        id="use-button"
+        heading="Usar el componente Button"
+        description="Importa y renderiza tu nuevo Button en App.tsx."
+        title="src/App.tsx"
+        code={`import React from 'react';
+      import Button from './ui/Button';
+
+      function App() {
+        return (
+          <div className="p-4">
+            <Button onClick={() => alert('¡Hola!')}>Haz click</Button>
+          </div>
+        );
+      }
+
+      export default App;`}
+        language="tsx"
       />
     </>
   );
