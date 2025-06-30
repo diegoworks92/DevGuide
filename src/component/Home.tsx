@@ -1,4 +1,3 @@
-// src/components/Home.tsx
 import { Outlet } from "react-router-dom";
 import Nav from "./Nav";
 import Sidebar from "./Sidebar";

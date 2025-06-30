@@ -6,32 +6,47 @@ const AxiosGuide = () => {
     <>
       <Title name="Axios" />
 
-      {/* Official Page */}
+      <CodeBlock
+        id="jsonplaceholder-api"
+        heading="API de ejemplo: JSON Placeholder"
+        description="Usaremos la API pública de {JSON} Placeholder para obtener una lista de usuarios de ejemplo."
+        title="jsonplaceholder.typicode.com/users"
+        code={`https://jsonplaceholder.typicode.com/users`}
+        language="text"
+      />
+
       <CodeBlock
         id="official-page"
-        heading="Official Page"
-        title="URL"
+        heading="Página oficial"
+        description="Documentación oficial de Axios para realizar peticiones HTTP."
+        title="axios-http.com"
         code={`https://axios-http.com/`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="install-dependency"
-        heading="Install dependency"
+        heading="Instalar dependencia"
+        description="Instala Axios con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install axios`}
         language="bash"
+        code="npm install axios"
+        variants={[
+          { label: "npm", code: "npm install axios" },
+          { label: "yarn", code: "yarn add axios" },
+          { label: "pnpm", code: "pnpm add axios" },
+          { label: "bun", code: "bun add axios" },
+        ]}
       />
 
-      {/* Uso básico con Promises */}
       <CodeBlock
         id="basic-get-request"
-        heading="Basic GET request"
+        heading="Petición GET básica"
+        description="Ejemplo simple de cómo hacer una petición GET con Axios."
         title="basicRequest.js"
         code={`import axios from 'axios';
 
-axios.get('https://api.example.com/data')
+axios.get('https://jsonplaceholder.typicode.com/users')
   .then(response => {
     console.log(response.data);
   })
@@ -41,30 +56,29 @@ axios.get('https://api.example.com/data')
         language="js"
       />
 
-      {/* Crear instancia de Axios */}
       <CodeBlock
         id="create-axios-instance"
-        heading="Create an Axios instance"
-        title="utils/api.ts"
+        heading="Crear instancia de Axios"
+        description="Crea una instancia personalizada de Axios con configuración base."
+        title="src/utils/api.ts"
         code={`import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://api.example.com',
+  baseURL: 'https://jsonplaceholder.typicode.com',
   timeout: 5000,
   headers: { 'Content-Type': 'application/json' },
 });`}
         language="ts"
       />
 
-      {/* Interceptores */}
       <CodeBlock
         id="request-response-interceptors"
-        heading="Add request & response interceptors"
-        title="utils/api.ts"
+        heading="Agregar interceptores"
+        description="Intercepta solicitudes y respuestas para agregar lógica personalizada."
+        title="src/utils/api.ts"
         code={`// Request interceptor
 api.interceptors.request.use(
   config => {
-    // p.ej. agregar token
     const token = localStorage.getItem('token');
     if (token) config.headers.Authorization = \`Bearer \${token}\`;
     return config;
@@ -76,7 +90,6 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   response => response,
   error => {
-    // manejar errores globales
     if (error.response?.status === 401) {
       // redirigir a login, por ejemplo
     }
@@ -86,23 +99,28 @@ api.interceptors.response.use(
         language="ts"
       />
 
-      {/* Async/Await en React */}
       <CodeBlock
         id="async-await-in-react"
-        heading="Fetch data with async/await"
-        title="components/FetchData.tsx"
-        code={`import React, { useState, useEffect } from 'react';
+        heading="Pedir datos con async/await"
+        description="Usa async/await dentro de useEffect para obtener datos con Axios."
+        title="src/components/UserList.tsx"
+        code={`import { useState, useEffect } from 'react';
 import { api } from '../utils/api';
 
-export default function FetchData() {
-  const [data, setData] = useState<any>(null);
+type User = {
+  id: number;
+  name: string;
+};
+
+export default function UserList() {
+  const [data, setData] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function load() {
       try {
-        const response = await api.get('/data');
+        const response = await api.get<User[]>('/users');
         setData(response.data);
       } catch (err: any) {
         setError(err.message);
@@ -116,26 +134,37 @@ export default function FetchData() {
   if (loading) return <p>Loading…</p>;
   if (error) return <p>Error: {error}</p>;
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+  return (
+    <ul>
+      {data.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
 }`}
         language="tsx"
       />
 
-      {/* Hook personalizado */}
       <CodeBlock
         id="custom-fetch-hook"
-        heading="Custom fetch hook"
-        title="hooks/useApi.ts"
+        heading="Hook personalizado"
+        description="Crea un hook reutilizable para obtener datos desde un endpoint."
+        title="src/hooks/useApi.ts"
         code={`import { useState, useEffect } from 'react';
 import { api } from '../utils/api';
 
-export function useApi<T>(endpoint: string) {
-  const [data, setData] = useState<T | null>(null);
+type User = {
+  id: number;
+  name: string;
+};
+
+export function useApi(endpoint: string) {
+  const [data, setData] = useState<User[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get<T>(endpoint)
+    api.get<User[]>(endpoint)
       .then(res => setData(res.data))
       .catch(err => setError(err.message))
       .finally(() => setLoading(false));
@@ -146,11 +175,11 @@ export function useApi<T>(endpoint: string) {
         language="ts"
       />
 
-      {/* Carga de multipart/form-data */}
       <CodeBlock
         id="upload-multipart-form-data"
-        heading="Upload file (multipart/form-data)"
-        title="utils/upload.ts"
+        heading="Subir archivo (multipart/form-data)"
+        description="Ejemplo de cómo subir archivos usando FormData y Axios."
+        title="src/utils/upload.ts"
         code={`import { api } from './api';
 
 export async function uploadFile(file: File) {
@@ -165,16 +194,16 @@ export async function uploadFile(file: File) {
         language="ts"
       />
 
-      {/* Manejo de cancelación */}
       <CodeBlock
         id="cancel-request-with-canceltoken"
-        heading="Cancel request with CancelToken"
-        title="utils/api.ts"
+        heading="Cancelar petición con CancelToken"
+        description="Cancela una petición activa usando CancelToken de Axios."
+        title="src/utils/api.ts"
         code={`import axios from 'axios';
 
 const source = axios.CancelToken.source();
 
-api.get('/long-task', { cancelToken: source.token })
+api.get('/users', { cancelToken: source.token })
   .then(res => console.log(res.data))
   .catch(err => {
     if (axios.isCancel(err)) {
@@ -185,7 +214,7 @@ api.get('/long-task', { cancelToken: source.token })
   });
 
 // Para cancelar:
-source.cancel('Operation canceled by the user.');`}
+source.cancel('Operación cancelada por el usuario.');`}
         language="ts"
       />
     </>

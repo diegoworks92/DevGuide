@@ -6,29 +6,35 @@ const ZustandGuide = () => {
     <>
       <Title name="Zustand" />
 
-      {/* Página Oficial */}
       <CodeBlock
         id="official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Documentación oficial de Zustand para comenzar rápidamente."
         title="URL"
         code={`https://docs.pmnd.rs/zustand/getting-started/introduction`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="install-dependency"
-        heading="Install dependency"
+        heading="Instalar dependencia"
+        description="Instala Zustand con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install zustand`}
         language="bash"
+        code="npm install zustand"
+        variants={[
+          { label: "npm", code: "npm install zustand" },
+          { label: "yarn", code: "yarn add zustand" },
+          { label: "pnpm", code: "pnpm add zustand" },
+          { label: "bun", code: "bun add zustand" },
+        ]}
       />
 
-      {/* Crear el store */}
       <CodeBlock
         id="create-the-store"
-        heading="Create the store"
-        title="store/useStore.ts"
+        heading="Crear el store"
+        description="Crea un store básico con Zustand y una acción para modificar el estado."
+        title="src/store/useStore.ts"
         code={`import create from "zustand";
 
 type BearState = {
@@ -43,11 +49,11 @@ export const useStore = create<BearState>((set) => ({
         language="ts"
       />
 
-      {/* Usar el store en un componente */}
       <CodeBlock
         id="use-the-store-in-component"
-        heading="Use the store in a component"
-        title="components/BearCounter.tsx"
+        heading="Usar el store en un componente"
+        description="Lee y actualiza el estado global desde un componente React."
+        title="src/components/BearCounter.tsx"
         code={`import React from "react";
 import { useStore } from "../store/useStore";
 
@@ -70,11 +76,11 @@ export function BearCounter() {
         language="tsx"
       />
 
-      {/* Persistencia (opcional) */}
       <CodeBlock
         id="persist-state"
-        heading="Persist state"
-        title="store/useStore.ts"
+        heading="Persistencia del estado (opcional)"
+        description="Usa el middleware persist para guardar el estado en localStorage."
+        title="src/store/useStore.ts"
         code={`import create from "zustand";
 import { persist } from "zustand/middleware";
 

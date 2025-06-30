@@ -6,28 +6,46 @@ const Test = () => {
     <>
       <Title name="Unit Tests and Integration Tests" />
 
-      {/* Página oficial */}
       <CodeBlock
         id="official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Documentación oficial de Testing Library para pruebas con user-event."
         title="URL"
         code={`https://testing-library.com/docs/user-event/install`}
         language="text"
       />
 
-      {/* Instalación de dependencias */}
       <CodeBlock
         id="install-dependencies"
-        heading="Install dependencies"
+        heading="Instalar dependencias"
+        description="Instala Vitest y Testing Library con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install --save-dev vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event`}
         language="bash"
+        code="npm install --save-dev vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event"
+        variants={[
+          {
+            label: "npm",
+            code: "npm install --save-dev vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event",
+          },
+          {
+            label: "yarn",
+            code: "yarn add -D vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event",
+          },
+          {
+            label: "pnpm",
+            code: "pnpm add -D vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event",
+          },
+          {
+            label: "bun",
+            code: "bun add -d vitest @testing-library/react @testing-library/jest-dom jsdom @testing-library/user-event",
+          },
+        ]}
       />
 
-      {/* Script de test en package.json */}
       <CodeBlock
         id="add-test-script"
-        heading="Add test script"
+        heading="Agregar script de test"
+        description="Añade el comando para ejecutar pruebas con Vitest en tu package.json."
         title="package.json"
         code={`"scripts": {
   "test": "vitest"
@@ -35,10 +53,10 @@ const Test = () => {
         language="json"
       />
 
-      {/* Configuración del entorno de Vitest */}
       <CodeBlock
         id="setup-vitest-environment"
-        heading="Setup Vitest environment"
+        heading="Configurar entorno de Vitest"
+        description="Prepara el entorno de pruebas con jest-dom y cleanup automático."
         title="vitest.setup.js"
         code={`import { expect, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
@@ -49,12 +67,13 @@ expect.extend(matchers);
 afterEach(() => {
   cleanup();
 });`}
+        language="ts"
       />
 
-      {/* Tipado de TS para testing */}
       <CodeBlock
         id="extend-ts-types"
-        heading="Extend TS types for testing"
+        heading="Extender tipos de TypeScript"
+        description="Incluye los tipos de jest-dom en tu configuración de TypeScript."
         title="tsconfig.json"
         code={`{
   "files": [],
@@ -69,15 +88,14 @@ afterEach(() => {
         language="json"
       />
 
-      {/* Configuración de Vite con Vitest */}
       <CodeBlock
         id="configure-vite-with-vitest"
-        heading="Configure Vite with Vitest"
+        heading="Configurar Vite con Vitest"
+        description="Activa el entorno jsdom y define el archivo de setup para pruebas."
         title="vite.config.ts"
         code={`import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   test: {
@@ -89,10 +107,10 @@ export default defineConfig({
         language="ts"
       />
 
-      {/* Test de integración del componente Counter con Redux */}
       <CodeBlock
         id="test-component-with-redux"
-        heading="Test component with Redux"
+        heading="Probar componente con Redux"
+        description="Ejemplo de test de integración para un componente conectado a Redux."
         title="src/test/Counter.test.tsx"
         code={`import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
@@ -102,7 +120,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
 import userEvent from "@testing-library/user-event";
 
-// Configuración del store antes de cada test
 let store;
 const renderCounter = () => {
   store = configureStore({ reducer: { counter: counterReducer } });
@@ -155,6 +172,7 @@ describe("<Counter />", () => {
     expect(screen.getByText("2")).toBeInTheDocument();
   });
 }`}
+        language="tsx"
       />
     </>
   );

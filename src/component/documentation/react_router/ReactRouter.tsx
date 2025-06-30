@@ -6,41 +6,48 @@ const ReactRouter = () => {
     <>
       <Title name="React Router" />
 
-      {/* Página oficial */}
       <CodeBlock
         id="official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Documentación oficial de React Router con instalación declarativa."
         title="Declarative Installation"
         code={`https://reactrouter.com/start/declarative/installation`}
         language="text"
       />
 
-      {/* Instalación del paquete */}
       <CodeBlock
         id="install-package"
-        heading="Install the package"
+        heading="Instalar el paquete"
+        description="Instala react-router-dom con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install react-router-dom`}
         language="bash"
+        code="npm install react-router-dom"
+        variants={[
+          { label: "npm", code: "npm install react-router-dom" },
+          { label: "yarn", code: "yarn add react-router-dom" },
+          { label: "pnpm", code: "pnpm add react-router-dom" },
+          { label: "bun", code: "bun add react-router-dom" },
+        ]}
       />
 
-      {/* Envolver la app con BrowserRouter */}
       <CodeBlock
         id="wrap-with-browserrouter"
-        heading="Wrap with BrowserRouter"
-        title="main.jsx"
+        heading="Envolver con BrowserRouter"
+        description="Envuelve tu App con el componente BrowserRouter para habilitar el enrutamiento."
+        title="src/main.jsx"
         code={`import { BrowserRouter } from "react-router-dom";
 
 <BrowserRouter>
   <App />
 </BrowserRouter>`}
+        language="tsx"
       />
 
-      {/* Definir rutas */}
       <CodeBlock
         id="define-routes"
-        heading="Define Routes"
-        title="App.jsx"
+        heading="Definir rutas"
+        description="Usa el componente Routes para declarar las rutas de tu aplicación."
+        title="src/App.jsx"
         code={`import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -55,15 +62,15 @@ function App() {
       </Routes>
     </>
   );
-}
-`}
+}`}
+        language="tsx"
       />
 
-      {/* Crear NavBar con enlaces */}
       <CodeBlock
         id="create-navbar"
-        heading="Create navigation links"
-        title="NavBar.tsx"
+        heading="Crear enlaces de navegación"
+        description="Crea una barra de navegación con enlaces usando el componente Link."
+        title="src/components/NavBar.tsx"
         code={`import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -75,25 +82,24 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
-
-
-`}
+export default NavBar;`}
+        language="tsx"
       />
 
-      {/* Ruta de fallback (404) */}
       <CodeBlock
         id="fallback-route"
-        heading="Fallback route"
+        heading="Ruta de fallback (404)"
+        description="Captura rutas no definidas con un componente NotFound."
         title="404"
         code={`<Route path="*" element={<NotFound />} />`}
+        language="tsx"
       />
 
-      {/* Extra: Layout con Outlet */}
       <CodeBlock
         id="layout-with-outlet"
-        heading="Extra: Layout with Outlet"
-        title="components/Layout.tsx"
+        heading="Extra: Layout con Outlet"
+        description="Crea un layout persistente con Outlet para renderizar rutas hijas."
+        title="src/components/Layout.tsx"
         code={`import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
@@ -110,11 +116,11 @@ export default function Layout() {
         language="tsx"
       />
 
-      {/* Extra: Definir rutas anidadas */}
       <CodeBlock
         id="define-nested-routes"
-        heading="Extra: Define nested routes"
-        title="App.jsx"
+        heading="Extra: Definir rutas anidadas"
+        description="Organiza rutas hijas dentro de un layout principal."
+        title="src/App.jsx"
         code={`<Routes>
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
@@ -122,6 +128,7 @@ export default function Layout() {
     <Route path="*" element={<NotFound />} />
   </Route>
 </Routes>`}
+        language="tsx"
       />
     </>
   );

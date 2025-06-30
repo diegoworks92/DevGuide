@@ -6,34 +6,49 @@ const AdvancedFetchGuide = () => {
     <>
       <Title name="Advanced Fetch" />
 
-      {/* Documentación oficial */}
+      <CodeBlock
+        id="jsonplaceholder-api"
+        heading="API de ejemplo: JSON Placeholder"
+        description="Usaremos la API pública de {JSON} Placeholder para obtener una lista de usuarios de ejemplo."
+        title="jsonplaceholder.typicode.com/users"
+        code={`https://jsonplaceholder.typicode.com/users`}
+        language="text"
+      />
+
       <CodeBlock
         id="official-docs"
-        heading="Official Docs"
+        heading="Documentación oficial"
+        description="Consulta la documentación de Fetch API y AbortController en MDN."
         title="Fetch & AbortController"
         code={`https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 https://developer.mozilla.org/en-US/docs/Web/API/AbortController`}
         language="text"
       />
 
-      {/* Hook fetch cancelable */}
       <CodeBlock
         id="cancelable-fetch-hook"
-        heading="Cancelable fetch hook"
-        title="hooks/useFetchWithCancel.ts"
+        heading="Hook con cancelación"
+        description="Crea un hook personalizado que cancela la petición fetch si el componente se desmonta."
+        title="src/hooks/useFetchWithCancel.ts"
         code={`import { useState, useEffect } from 'react';
 
-export function useFetchWithCancel<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
+type User = {
+  id: number;
+  name: string;
+};
+
+export function useFetchWithCancel(url: string) {
+  const [data, setData] = useState<User[] | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const controller = new AbortController();
+
     fetch(url, { signal: controller.signal })
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
-        return res.json() as Promise<T>;
+        return res.json() as Promise<User[]>;
       })
       .then(setData)
       .catch(err => {
@@ -49,12 +64,12 @@ export function useFetchWithCancel<T>(url: string) {
         language="ts"
       />
 
-      {/* Wrapper de API */}
       <CodeBlock
         id="custom-api-wrapper"
-        heading="Custom API wrapper"
-        title="utils/api.ts"
-        code={`const API_URL = 'https://api.example.com';
+        heading="Wrapper de API"
+        description="Crea una función reutilizable para manejar peticiones y errores de forma centralizada."
+        title="src/utils/api.ts"
+        code={`const API_URL = 'https://jsonplaceholder.typicode.com';
 
 export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const res = await fetch(\`\${API_URL}\${endpoint}\`, options);
@@ -67,21 +82,26 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
         language="ts"
       />
 
-      {/* Hook usando el wrapper */}
       <CodeBlock
         id="hook-using-wrapper"
-        heading="Hook using the wrapper"
-        title="hooks/useApi.ts"
+        heading="Hook usando el wrapper"
+        description="Hook que utiliza el wrapper de API para obtener datos desde un endpoint."
+        title="src/hooks/useApi.ts"
         code={`import { useState, useEffect } from 'react';
 import { apiFetch } from '../utils/api';
 
-export function useApi<T>(endpoint: string) {
-  const [data, setData] = useState<T | null>(null);
+type User = {
+  id: number;
+  name: string;
+};
+
+export function useApi(endpoint: string) {
+  const [data, setData] = useState<User[] | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    apiFetch<T>(endpoint)
+    apiFetch<User[]>(endpoint)
       .then(setData)
       .catch(setError)
       .finally(() => setLoading(false));
@@ -92,11 +112,11 @@ export function useApi<T>(endpoint: string) {
         language="ts"
       />
 
-      {/* Ejemplo de lógica de reintento */}
       <CodeBlock
         id="retry-logic-example"
-        heading="Retry logic example"
-        title="utils/retryFetch.ts"
+        heading="Ejemplo de lógica de reintento"
+        description="Implementa una función fetch con reintentos automáticos y backoff exponencial."
+        title="src/utils/retryFetch.ts"
         code={`export async function retryFetch(
   url: string,
   options: RequestInit = {},

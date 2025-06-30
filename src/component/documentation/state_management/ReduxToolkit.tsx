@@ -6,31 +6,48 @@ const ReduxToolkit = () => {
     <>
       <Title name="Redux Toolkit" />
 
-      {/* Página Oficial */}
       <CodeBlock
         id="official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Enlace a la documentación oficial y tutorial rápido de Redux Toolkit."
         title="URL"
         code={`https://redux-toolkit.js.org/tutorials/quick-start`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="install-dependencies"
-        heading="Install dependencies"
+        heading="Instalar dependencias"
+        description="Instala react-redux y @reduxjs/toolkit con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install react-redux
-npm install @reduxjs/toolkit`}
+        code="npm install react-redux @reduxjs/toolkit"
         language="bash"
+        variants={[
+          {
+            label: "npm",
+            code: "npm install react-redux @reduxjs/toolkit",
+          },
+          {
+            label: "yarn",
+            code: "yarn add react-redux @reduxjs/toolkit",
+          },
+          {
+            label: "pnpm",
+            code: "pnpm add react-redux @reduxjs/toolkit",
+          },
+          {
+            label: "bun",
+            code: "bun add react-redux @reduxjs/toolkit",
+          },
+        ]}
       />
 
-      {/* Configurar el store */}
       <CodeBlock
         id="configure-the-store"
-        heading="Configure the store"
-        title="store/store.ts"
-        code={`import { configureStore } from '@reduxjs/toolkit'
+        heading="Configurar el store"
+        description="Define el store principal y tipos inferidos para RootState y AppDispatch."
+        title="src/store/store.ts"
+        code={`import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
@@ -39,43 +56,49 @@ export const store = configureStore({
   },
 });
 
-// Infer the RootState and AppDispatch types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;`}
+        language="ts"
       />
 
-      {/* Proveer el store */}
       <CodeBlock
         id="wrap-app-with-provider"
-        heading="Wrap App with Provider"
-        title="main.tsx"
-        code={`import { Provider } from 'react-redux';
-import { store } from './store/store.ts';
+        heading="Proveer el store"
+        description="Envuelve tu App con el Provider de React-Redux."
+        title="src/main.tsx"
+        code={`import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import App from './App';
 
-<Provider store={store}>
-  <App />
-</Provider>`}
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);`}
+        language="tsx"
       />
 
-      {/* Hooks tipados */}
       <CodeBlock
         id="create-typed-hooks"
-        heading="Create typed hooks"
-        title="store/hooks.ts"
+        heading="Hooks tipados"
+        description="Crea hooks personalizados con los tipos de tu store."
+        title="src/store/hooks.ts"
         code={`import { useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from './store';
 
-// Use throughout your app instead of plain 'useDispatch' and 'useSelector'
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector = <T>(selector: (state: RootState) => T) =>
   useSelector(selector);`}
+        language="ts"
       />
 
-      {/* Crear el slice */}
       <CodeBlock
         id="create-the-slice"
-        heading="Create the slice"
-        title="features/counter/counterSlice.ts"
+        heading="Crear el slice"
+        description="Define un slice con estado inicial, reducers y acciones."
+        title="src/features/counter/counterSlice.ts"
         code={`import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface CounterState {
@@ -101,14 +124,16 @@ export const { increment, decrement, incrementByAmount, reset } =
   counterSlice.actions;
 
 export default counterSlice.reducer;`}
+        language="ts"
       />
 
-      {/* Componente Counter */}
       <CodeBlock
         id="implement-the-counter"
-        heading="Implement the Counter"
-        title="features/counter/Counter.tsx"
-        code={`import {
+        heading="Implementar Counter"
+        description="Componente para leer el estado y despachar acciones del slice."
+        title="src/features/counter/Counter.tsx"
+        code={`import React from 'react';
+import {
   decrement,
   increment,
   incrementByAmount,
@@ -134,6 +159,7 @@ export function Counter() {
     </div>
   );
 }`}
+        language="tsx"
       />
     </>
   );

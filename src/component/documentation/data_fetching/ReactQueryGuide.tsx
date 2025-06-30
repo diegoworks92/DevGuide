@@ -6,28 +6,34 @@ const ReactQueryGuide = () => {
     <>
       <Title name="React Query" />
 
-      {/* Official Page */}
       <CodeBlock
         id="official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Documentación oficial de React Query (TanStack Query)."
         title="URL"
         code={`https://react-query.tanstack.com/`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="install-dependencies"
-        heading="Install dependencies"
+        heading="Instalar dependencias"
+        description="Instala @tanstack/react-query con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install @tanstack/react-query`}
         language="bash"
+        code="npm install @tanstack/react-query"
+        variants={[
+          { label: "npm", code: "npm install @tanstack/react-query" },
+          { label: "yarn", code: "yarn add @tanstack/react-query" },
+          { label: "pnpm", code: "pnpm add @tanstack/react-query" },
+          { label: "bun", code: "bun add @tanstack/react-query" },
+        ]}
       />
 
-      {/* Setup básico de QueryClient */}
       <CodeBlock
         id="setup-queryclient"
-        heading="Setup QueryClient"
+        heading="Configurar QueryClient"
+        description="Envuelve tu aplicación con QueryClientProvider para habilitar React Query."
         title="src/main.jsx"
         code={`import React from 'react';
 import ReactDOM from 'react-dom';
@@ -45,18 +51,18 @@ ReactDOM.render(
         language="tsx"
       />
 
-      {/* Configuración de caché y staleTime */}
       <CodeBlock
         id="configure-cache-staleTime"
-        heading="Configure cache & staleTime"
-        title="QueryClient options"
+        heading="Configurar cache y staleTime"
+        description="Personaliza el comportamiento de caché y reintentos en QueryClient."
+        title="src/queryClient.ts"
         code={`import { QueryClient } from '@tanstack/react-query';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 5,    // 5 minutes
-      cacheTime: 1000 * 60 * 30,   // 30 minutes
+      staleTime: 1000 * 60 * 5,    // 5 minutos
+      cacheTime: 1000 * 60 * 30,   // 30 minutos
       retry: 2,                    // reintenta 2 veces en fallo
     },
   },
@@ -64,11 +70,11 @@ export const queryClient = new QueryClient({
         language="ts"
       />
 
-      {/* Búsqueda básica con useQuery */}
       <CodeBlock
         id="basic-data-fetching"
-        heading="Basic Data Fetching"
-        title="components/TodoList.tsx"
+        heading="Obtener datos con useQuery"
+        description="Ejemplo básico de cómo usar useQuery para obtener datos."
+        title="src/components/TodoList.tsx"
         code={`import { useQuery } from '@tanstack/react-query';
 
 function fetchTodos() {
@@ -92,11 +98,11 @@ export default function TodoList() {
         language="tsx"
       />
 
-      {/* Mutaciones con useMutation */}
       <CodeBlock
         id="mutations"
-        heading="Mutations"
-        title="components/AddTodo.tsx"
+        heading="Mutaciones con useMutation"
+        description="Envía datos al servidor y actualiza la caché con invalidateQueries."
+        title="src/components/AddTodo.tsx"
         code={`import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 function addTodo(newTitle: string) {
@@ -111,7 +117,6 @@ export default function AddTodo() {
   const queryClient = useQueryClient();
   const mutation = useMutation(addTodo, {
     onSuccess: () => {
-      // Invalida y refetch de 'todos'
       queryClient.invalidateQueries(['todos']);
     },
   });
@@ -132,24 +137,23 @@ export default function AddTodo() {
         language="tsx"
       />
 
-      {/* Invalidación & refetch */}
       <CodeBlock
         id="invalidation-refetch"
-        heading="Invalidation & Refetch"
+        heading="Invalidación y refetch"
+        description="Fuerza la actualización de una query específica desde cualquier parte del código."
         title="anywhere in your code"
         code={`import { useQueryClient } from '@tanstack/react-query';
 
 const queryClient = useQueryClient();
-// Fuerza refetch de la query 'todos'
 queryClient.invalidateQueries(['todos']);`}
         language="ts"
       />
 
-      {/* Claves dinámicas */}
       <CodeBlock
         id="dynamic-query-keys"
-        heading="Dynamic Query Keys"
-        title="components/UserTodos.tsx"
+        heading="Claves dinámicas"
+        description="Usa claves dinámicas para queries dependientes de parámetros como userId."
+        title="src/components/UserTodos.tsx"
         code={`import { useQuery } from '@tanstack/react-query';
 
 export default function UserTodos({ userId }: { userId: number }) {
@@ -168,10 +172,10 @@ export default function UserTodos({ userId }: { userId: number }) {
         language="tsx"
       />
 
-      {/* Opcional: Devtools */}
       <CodeBlock
         id="optional-devtools"
-        heading="Optional: Devtools"
+        heading="Opcional: Devtools"
+        description="Agrega React Query Devtools para depurar queries y mutaciones."
         title="src/main.jsx"
         code={`import React from 'react';
 import ReactDOM from 'react-dom';

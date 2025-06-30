@@ -18,10 +18,16 @@ const SassGuide = () => {
       <CodeBlock
         id="install-sass"
         heading="Instalar Sass"
-        description="Agrega Sass como dependencia de desarrollo."
+        description="Agrega Sass como dependencia de desarrollo con tu gestor favorito."
         title="Terminal"
-        code={`npm install -D sass`}
         language="bash"
+        code="npm install -D sass"
+        variants={[
+          { label: "npm", code: "npm install -D sass" },
+          { label: "yarn", code: "yarn add -D sass" },
+          { label: "pnpm", code: "pnpm add -D sass" },
+          { label: "bun", code: "bun add -d sass" },
+        ]}
       />
 
       <CodeBlock
@@ -134,18 +140,18 @@ export default function Button({ onClick, children }: ButtonProps) {
         description="Configura PostCSS con Autoprefixer para añadir prefijos CSS según navegador."
         title="vite.config.ts"
         code={`import { defineConfig } from 'vite';
-      import react from '@vitejs/plugin-react';
-      // instala primero: npm install -D autoprefixer postcss
-      import autoprefixer from 'autoprefixer';
+import react from '@vitejs/plugin-react';
+// instala primero: npm install -D autoprefixer postcss
+import autoprefixer from 'autoprefixer';
 
-      export default defineConfig({
-        plugins: [react()],
-        css: {
-          postcss: {
-            plugins: [autoprefixer()],
-          },
-        },
-      });`}
+export default defineConfig({
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [autoprefixer()],
+    },
+  },
+});`}
         language="ts"
       />
 
@@ -155,17 +161,17 @@ export default function Button({ onClick, children }: ButtonProps) {
         description="Importa y renderiza tu nuevo Button en App.tsx."
         title="src/App.tsx"
         code={`import React from 'react';
-      import Button from './ui/Button';
+import Button from './ui/Button';
 
-      function App() {
-        return (
-          <div className="p-4">
-            <Button onClick={() => alert('¡Hola!')}>Haz click</Button>
-          </div>
-        );
-      }
+function App() {
+  return (
+    <div className="p-4">
+      <Button onClick={() => alert('¡Hola!')}>Haz click</Button>
+    </div>
+  );
+}
 
-      export default App;`}
+export default App;`}
         language="tsx"
       />
     </>

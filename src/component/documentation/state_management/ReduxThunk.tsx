@@ -6,45 +6,53 @@ const ReduxThunk = () => {
     <>
       <Title name="Redux Thunk" />
 
-      {/* Página Oficial */}
       <CodeBlock
         id="thunk-official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Enlace a la documentación oficial de Redux Thunk."
         title="URL"
         code={`https://redux.js.org/usage/writing-logic-thunks`}
         language="text"
       />
 
-      {/* Instalación */}
       <CodeBlock
         id="thunk-install-dependencies"
-        heading="Install Redux Toolkit and React-Redux"
+        heading="Instalar dependencias"
+        description="Instala @reduxjs/toolkit y react-redux con tu gestor de paquetes favorito."
         title="Terminal"
-        code={`npm install @reduxjs/toolkit react-redux`}
+        language="bash"
+        code="npm install @reduxjs/toolkit react-redux"
+        variants={[
+          { label: "npm", code: "npm install @reduxjs/toolkit react-redux" },
+          { label: "yarn", code: "yarn add @reduxjs/toolkit react-redux" },
+          { label: "pnpm", code: "pnpm add @reduxjs/toolkit react-redux" },
+          { label: "bun", code: "bun add @reduxjs/toolkit react-redux" },
+        ]}
       />
 
-      {/* Crear el thunk asíncrono */}
       <CodeBlock
         id="create-async-thunk"
-        heading="Create the async thunk"
-        title="features/users/usersThunks.ts"
+        heading="Crear thunk asíncrono"
+        description="Define un thunk asíncrono con createAsyncThunk para recuperar datos."
+        title="src/features/users/usersThunks.ts"
         code={`import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchUserById = createAsyncThunk(
   "users/fetchById",
   async (userId: number) => {
     const response = await fetch(\`https://jsonplaceholder.typicode.com/users/\${userId}\`);
-    if (!response.ok) throw new Error("Error fetching user");
+    if (!response.ok) throw new Error("Error al obtener usuario");
     return await response.json();
   }
 );`}
+        language="ts"
       />
 
-      {/* Crear el slice */}
       <CodeBlock
         id="create-slice-for-thunk"
-        heading="Create the slice"
-        title="features/users/usersSlice.ts"
+        heading="Crear slice para thunk"
+        description="Gestiona estados pending, fulfilled y rejected en extraReducers."
+        title="src/features/users/usersSlice.ts"
         code={`import { createSlice } from "@reduxjs/toolkit";
 import { fetchUserById } from "./usersThunks";
 
@@ -75,20 +83,21 @@ const usersSlice = createSlice({
         state.loading = false;
       })
       .addCase(fetchUserById.rejected, (state, action) => {
-        state.error = action.error.message || "Unknown error";
+        state.error = action.error.message || "Error desconocido";
         state.loading = false;
       });
   }
 });
 
 export default usersSlice.reducer;`}
+        language="ts"
       />
 
-      {/* Configurar la store */}
       <CodeBlock
         id="thunk-configure-store"
-        heading="Configure the store"
-        title="store.ts"
+        heading="Configurar el store"
+        description="Agrega el reducer de users al store principal."
+        title="src/store/store.ts"
         code={`import { configureStore } from "@reduxjs/toolkit";
 import usersReducer from "../features/users/usersSlice";
 
@@ -97,27 +106,28 @@ export const store = configureStore({
     users: usersReducer
   }
 });`}
+        language="ts"
       />
 
-      {/* Usar en un componente */}
       <CodeBlock
         id="use-thunk-in-component"
-        heading="Use it inside a component"
-        title="components/UserProfile.tsx"
+        heading="Usar thunk en componente"
+        description="Despacha fetchUserById en useEffect y renderiza estados loading, error y datos."
+        title="src/components/UserProfile.tsx"
         code={`import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserById } from "../features/users/usersThunks";
-import { RootState } from "../app/store";
+import { RootState } from "../store/store";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state: RootState) => state.users);
 
   useEffect(() => {
-    dispatch(fetchUserById(1)); // Cargar usuario con ID 1
+    dispatch(fetchUserById(1));
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!user) return null;
 
@@ -125,12 +135,13 @@ const UserProfile = () => {
     <div className="p-4 bg-white rounded shadow">
       <h2 className="text-xl font-bold">{user.name}</h2>
       <p>Email: {user.email}</p>
-      <p>Company: {user.company.name}</p>
+      <p>Empresa: {user.company.name}</p>
     </div>
   );
 };
 
 export default UserProfile;`}
+        language="tsx"
       />
     </>
   );

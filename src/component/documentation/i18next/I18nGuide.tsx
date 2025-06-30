@@ -1,3 +1,4 @@
+import InfoText from "../../InfoText";
 import CodeBlock from "../../CodeBlock";
 import Title from "../../Title";
 
@@ -6,10 +7,12 @@ const I18nGuide = () => {
     <>
       <Title name="React Internationalization (i18n)" />
 
-      <p className="mb-4 text-gray-300">
-        Organiza tus traducciones y elige entre carga dinámica (HTTP backend) o
-        estática (imports).
-      </p>
+      <InfoText
+        heading="Introducción"
+        description={`Puedes gestionar las traducciones en React con i18next de dos formas:\n
+      1) Carga dinámica desde public/locales usando i18next-http-backend, ideal si quieres modificar los archivos de traducción sin recompilar.\n
+      2) Importación estática desde src/locales, recomendada si prefieres incluir los textos directamente en el bundle final.`}
+      />
 
       <CodeBlock
         id="official-page"
@@ -23,10 +26,27 @@ const I18nGuide = () => {
       <CodeBlock
         id="install-dependencies"
         heading="Instalar dependencias"
-        description="Añade i18next, bindings y detectores de idioma."
+        description="Instala i18next y sus adaptadores con tu gestor favorito."
         title="Terminal"
-        code={`npm install i18next react-i18next i18next-browser-languagedetector i18next-http-backend`}
         language="bash"
+        variants={[
+          {
+            label: "npm",
+            code: "npm install i18next react-i18next i18next-browser-languagedetector i18next-http-backend",
+          },
+          {
+            label: "yarn",
+            code: "yarn add i18next react-i18next i18next-browser-languagedetector i18next-http-backend",
+          },
+          {
+            label: "pnpm",
+            code: "pnpm add i18next react-i18next i18next-browser-languagedetector i18next-http-backend",
+          },
+          {
+            label: "bun",
+            code: "bun add i18next react-i18next i18next-browser-languagedetector i18next-http-backend",
+          },
+        ]}
       />
 
       <CodeBlock
@@ -109,31 +129,32 @@ export default function Greeting() {
         language="tsx"
       />
 
+      <InfoText
+        heading="Importación estática (opcional)"
+        description="Si prefieres no usar i18next-http-backend, puedes importar directamente los archivos de traducción desde src/locales. Esto elimina la necesidad de cargar archivos JSON desde public y los incluye en el bundle final."
+      />
+
       <CodeBlock
         id="static-import"
-        heading="Import estático (opcional)"
-        description="Administra tus traducciones en React con i18next utilizando dos enfoques: 
-        • Carga dinámica desde public/locales usando i18next-http-backend (ideal si quieres editar las traducciones sin recompilar). 
-        • Importación estática desde src/locales, recomendada si prefieres incluir los textos en el bundle final. 
-        En este caso, debes eliminar i18next-http-backend y configurar i18n.ts de esta forma:"
+        heading="Configurar i18n con imports estáticos"
         title="src/i18n.ts"
         code={`import i18n from 'i18next';
-      import { initReactI18next } from 'react-i18next';
-      import en from './locales/en.json';
-      import es from './locales/es.json';
+import { initReactI18next } from 'react-i18next';
+import en from './locales/en.json';
+import es from './locales/es.json';
 
-      i18n
-        .use(initReactI18next)
-        .init({
-          resources: {
-            en: { translation: en },
-            es: { translation: es }
-          },
-          fallbackLng: 'en',
-          debug: false
-        });
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: en },
+      es: { translation: es }
+    },
+    fallbackLng: 'en',
+    debug: false
+  });
 
-      export default i18n;`}
+export default i18n;`}
         language="ts"
       />
     </>

@@ -6,21 +6,30 @@ const BasicFetchGuide = () => {
     <>
       <Title name="Basic Fetch" />
 
-      {/* Documentación oficial */}
+      <CodeBlock
+        id="jsonplaceholder-api"
+        heading="API de ejemplo: JSON Placeholder"
+        description="Usaremos la API pública de {JSON} Placeholder para obtener una lista de usuarios de ejemplo."
+        title="jsonplaceholder.typicode.com/users"
+        code={`https://jsonplaceholder.typicode.com/users`}
+        language="text"
+      />
+
       <CodeBlock
         id="official-docs"
-        heading="Official Docs"
+        heading="Documentación oficial"
+        description="Consulta la documentación oficial de la API Fetch en MDN."
         title="MDN Fetch API"
         code={`https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API`}
         language="text"
       />
 
-      {/* Llamada fetch sencilla */}
       <CodeBlock
         id="simple-fetch-call"
-        heading="Simple fetch call"
+        heading="Llamada fetch sencilla"
+        description="Ejemplo básico de cómo hacer una petición fetch y manejar errores."
         title="basicFetch.js"
-        code={`fetch('https://api.example.com/data')
+        code={`fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => {
     if (!response.ok) throw new Error('Network response was not ok');
     return response.json();
@@ -30,26 +39,31 @@ const BasicFetchGuide = () => {
         language="js"
       />
 
-      {/* Fetch en React con useEffect */}
       <CodeBlock
         id="fetch-in-react"
-        heading="Fetch in React with useEffect"
-        title="components/FetchData.tsx"
-        code={`import React, { useState, useEffect } from 'react';
+        heading="Fetch en React con useEffect"
+        description="Realiza una petición fetch dentro de un componente React y muestra los usuarios."
+        title="src/components/UserList.tsx"
+        code={`import { useState, useEffect } from "react";
 
-export default function FetchData() {
-  const [data, setData] = useState<any>(null);
+type User = {
+  id: number;
+  name: string;
+};
+
+export default function UserList() {
+  const [data, setData] = useState<User[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://api.example.com/data')
-      .then(res => {
-        if (!res.ok) throw new Error('Network response was not ok');
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
       })
-      .then(json => setData(json))
-      .catch(err => setError(err))
+      .then((json) => setData(json))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
 
@@ -58,10 +72,34 @@ export default function FetchData() {
 
   return (
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <ul>
+        {data.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }`}
+        language="tsx"
+      />
+
+      <CodeBlock
+        id="use-in-app"
+        heading="Usar el componente en App"
+        description="Importa y renderiza el componente UserList en tu App principal."
+        title="src/App.tsx"
+        code={`import UserList from "./components/UserList";
+
+function App() {
+  return (
+    <div>
+      <h1>Lista de usuarios</h1>
+      <UserList />
+    </div>
+  );
+}
+
+export default App;`}
         language="tsx"
       />
     </>

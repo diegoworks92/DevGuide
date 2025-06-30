@@ -1,3 +1,4 @@
+import InfoText from "../../InfoText";
 import CodeBlock from "../../CodeBlock";
 import Title from "../../Title";
 
@@ -6,29 +7,25 @@ const ReactRouterOutletGuide = () => {
     <>
       <Title name="React Router: Layout & Outlet" />
 
-      {/* Introducción */}
-      <CodeBlock
-        id="introduccion"
+      <InfoText
         heading="Introducción"
-        title="Descripción"
-        code={`Con <Outlet /> puedes renderizar rutas hijas dentro de un layout compartido.`}
-        language="text"
+        description="Con <Outlet /> puedes renderizar rutas hijas dentro de un layout compartido."
       />
 
-      {/* Página Oficial */}
       <CodeBlock
         id="official-page"
-        heading="Official Page"
+        heading="Página oficial"
+        description="Referencia oficial del hook useOutlet y su uso en layouts."
         title="URL"
         code={`https://reactrouter.com/en/main/hooks/use-outlet`}
         language="text"
       />
 
-      {/* Crear Layout */}
       <CodeBlock
         id="create-layout"
-        heading="Create a Layout component"
-        title="components/Layout.tsx"
+        heading="Crear componente Layout"
+        description="Crea un layout común que incluya navegación y un área para rutas hijas."
+        title="src/components/Layout.tsx"
         code={`import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
@@ -46,11 +43,11 @@ export default function Layout() {
         language="tsx"
       />
 
-      {/* Actualizar App.jsx */}
       <CodeBlock
         id="wrap-with-layout"
-        heading="Wrap your routes with Layout"
-        title="App.jsx"
+        heading="Envolver rutas con Layout"
+        description="Agrupa tus rutas dentro de un layout para compartir estructura."
+        title="src/App.jsx"
         code={`import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
