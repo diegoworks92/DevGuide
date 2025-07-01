@@ -11,7 +11,7 @@ interface CodeBlockProps {
   id?: string;
   language?: string;
   description?: string;
-  variants?: { label: string; code: string }[]; // nuevo
+  variants?: { label: string; code: string }[];
 }
 
 const CodeBlock = ({
@@ -43,6 +43,10 @@ const CodeBlock = ({
     navigator.clipboard.writeText(activeCode ?? "");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const isUrl = (text?: string) => {
+    return typeof text === "string" && /^https?:\/\//.test(text.trim());
   };
 
   return (
@@ -85,13 +89,24 @@ const CodeBlock = ({
           </div>
         </div>
 
-        <SyntaxHighlighter
-          language={language}
-          style={vscDarkPlus}
-          className="rounded-lg border"
-        >
-          {activeCode}
-        </SyntaxHighlighter>
+        {isUrl(activeCode) ? (
+          <a
+            href={activeCode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border w-full p-[10px] mt-[3px] border-white inline-block text-white break-all hover:text-[#4EC9B0] transition"
+          >
+            {activeCode}
+          </a>
+        ) : (
+          <SyntaxHighlighter
+            language={language}
+            style={vscDarkPlus}
+            className="rounded-lg border"
+          >
+            {activeCode}
+          </SyntaxHighlighter>
+        )}
       </div>
 
       <div className="h-4" />
@@ -100,6 +115,7 @@ const CodeBlock = ({
 };
 
 export default CodeBlock;
+
 {
   /* <CodeBlock description="" heading="" title="" code={``} />; */
 }

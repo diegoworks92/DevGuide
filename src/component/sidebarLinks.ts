@@ -1,5 +1,3 @@
-// src/sidebarLinks.ts
-
 export interface LinkItem {
   to: string;
   label: string;
@@ -10,12 +8,20 @@ export const stateManagementLinks: LinkItem[] = [
   { to: "/redux-toolkit", label: "Redux Toolkit" },
   { to: "/redux-thunk", label: "Redux Thunk" },
   { to: "/zustand", label: "Zustand" },
+  { to: "/use-reducer-basic", label: "useReducer: Basic" },
+  { to: "/use-reducer-advanced", label: "useReducer: Advanced" },
+  { to: "/context-api-basic", label: "Context API: Basic" },
+  { to: "/context-api-advanced", label: "Context API: Advanced" },
 ];
-// todas las rutas que consideras “State Management”
+
 export const stateManagementPaths: string[] = [
   "/redux-toolkit",
   "/redux-thunk",
   "/zustand",
+  "/use-reducer-basic",
+  "/use-reducer-advanced",
+  "/context-api-basic",
+  "/context-api-advanced",
 ];
 
 // React Router: enlaces + paths
@@ -56,6 +62,15 @@ export const dataFetchingPaths: string[] = [
   "/axios",
 ];
 
-// Styling": enlaces + paths
-export const stylingLinks: LinkItem[] = [{ to: "/sass", label: "Sass" }];
-export const stylingPaths: string[] = ["/sass"];
+// Styling: enlaces + paths
+export const stylingLinks: LinkItem[] = [
+  { to: "/sass", label: "Sass" },
+  { to: "/tailwind-css-basic", label: "Tailwind CSS: Basic" },
+  { to: "/tailwind-css-advanced", label: "Tailwind CSS: Advanced" },
+];
+
+export const stylingPaths: string[] = [
+  "/sass",
+  "/tailwind-css-basic",
+  "/tailwind-css-advanced",
+];

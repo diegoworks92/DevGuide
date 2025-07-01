@@ -4,7 +4,7 @@ import Title from "../../Title";
 const Test = () => {
   return (
     <>
-      <Title name="Unit Tests and Integration Tests" />
+      <Title name="Tests Unitarios e Integración" />
 
       <CodeBlock
         id="official-page"

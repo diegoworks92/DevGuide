@@ -20,7 +20,7 @@ const Menu = ({
 }: MenuProps) => {
   // clase para cada enlace
   const classLinks = ({ isActive }: { isActive: boolean }) =>
-    `pl-4 block ${
+    `block ${
       isActive ? "text-[#CE9178] font-bold" : "text-[#9CDCFE]"
     } hover:text-[#956892] transition`;
   /*  [#4EC9B0] */

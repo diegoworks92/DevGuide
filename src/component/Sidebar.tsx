@@ -19,10 +19,10 @@ const Sidebar = () => {
   const { pathname } = useLocation();
   return (
     <div className=" fixed top-0 left-0 h-full w-64 border-r pt-20 px-6">
-      <h1 className="mb-4 text-xl text-[#4EC9B0]">Documentation</h1>
+      <h1 className="mb-4 text-xl text-[#4EC9B0]">Documentación</h1>
 
       {/* Contenedor scrollable */}
-      <div className="overflow-y-auto max-h-[calc(100vh-5rem)] pl-6 pb-10">
+      <div className="overflow-y-auto max-h-[calc(100vh-5rem)] pl-4 pb-10">
         <Menu
           title="State Management"
           links={stateManagementLinks}

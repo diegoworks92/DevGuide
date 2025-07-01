@@ -10,8 +10,8 @@ const AxiosGuide = () => {
         id="jsonplaceholder-api"
         heading="API de ejemplo: JSON Placeholder"
         description="Usaremos la API pública de {JSON} Placeholder para obtener una lista de usuarios de ejemplo."
-        title="jsonplaceholder.typicode.com/users"
-        code={`https://jsonplaceholder.typicode.com/users`}
+        title="URL"
+        code={`https://jsonplaceholder.typicode.com`}
         language="text"
       />
 

@@ -5,7 +5,7 @@ import Title from "../../Title";
 const I18nGuide = () => {
   return (
     <>
-      <Title name="React Internationalization (i18n)" />
+      <Title name="Internacionalización en React (i18n)" />
 
       <InfoText
         heading="Introducción"

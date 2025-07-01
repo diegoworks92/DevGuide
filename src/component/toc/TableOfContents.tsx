@@ -60,7 +60,7 @@ export function TableOfContents() {
 
   return (
     <nav className="fixed pt-10 space-y-1 h-max pl-6 border-l">
-      <h1 className="mb-4 text-xl text-[#4EC9B0]">Table Of Contents</h1>
+      <h1 className="mb-4 text-xl text-[#4EC9B0]">Tabla de contenidos</h1>
       <div className="flex flex-col">
         {entries.map(({ id, heading }) => (
           <a

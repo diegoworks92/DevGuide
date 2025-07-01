@@ -42,7 +42,7 @@ const ResponsiveSidebar = () => {
           className="absolute right-0 mt-2 bg-[#1e1e1e] border text-white w-64 pt-4 px-10 shadow-lg z-50 rounded "
         >
           <h2 className="mb-4 -ml-4 font-bold text-lg text-[#4EC9B0]">
-            Documentation
+            Documentación
           </h2>
           <Menu
             title="State Management"

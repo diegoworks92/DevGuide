@@ -38,7 +38,7 @@ const Nav = () => {
         </div>
         <div className="hidden xl:flex gap-2">
           <NavLink to="/" className={({ isActive }) => classLinks(isActive)}>
-            Home
+            Inicio
           </NavLink>
 
           <NavLink
