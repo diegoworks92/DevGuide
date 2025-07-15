@@ -12,6 +12,7 @@ export const stateManagementLinks: LinkItem[] = [
   { to: "/use-reducer-advanced", label: "useReducer: Advanced" },
   { to: "/context-api-basic", label: "Context API: Basic" },
   { to: "/context-api-advanced", label: "Context API: Advanced" },
+  { to: "/use-reducer-context-api", label: "useReducer + Context API" },
 ];
 
 export const stateManagementPaths: string[] = [
@@ -22,6 +23,7 @@ export const stateManagementPaths: string[] = [
   "/use-reducer-advanced",
   "/context-api-basic",
   "/context-api-advanced",
+  "/use-reducer-context-api",
 ];
 
 // React Router: enlaces + paths

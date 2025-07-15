@@ -28,7 +28,8 @@ type Task = { id: number; text: string; done: boolean };
 type Action =
   | { type: 'ADD'; payload: string }
   | { type: 'TOGGLE'; payload: number }
-  | { type: 'CLEAR_COMPLETED' };
+  | { type: 'CLEAR_COMPLETED' }
+  | { type: 'REMOVE'; payload: number };
 
 function init(): Task[] {
   const stored = localStorage.getItem('tasks');
@@ -45,6 +46,8 @@ function reducer(state: Task[], action: Action): Task[] {
       );
     case 'CLEAR_COMPLETED':
       return state.filter(t => !t.done);
+    case 'REMOVE':
+      return state.filter(t => t.id !== action.payload);
     default:
       return state;
   }
@@ -110,6 +113,9 @@ export default function TodoApp() {
           border-radius: 4px;
           margin-bottom: 0.5rem;
           background-color: #2a2a2a;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
         .todo-text {
           cursor: pointer;
@@ -119,6 +125,13 @@ export default function TodoApp() {
         .todo-text.done {
           text-decoration: line-through;
           color: #888;
+        }
+        .remove-button {
+          background: none;
+          border: none;
+          color: #ff6b6b;
+          font-size: 1rem;
+          cursor: pointer;
         }
         .clear-button {
           margin-top: 1rem;
@@ -151,6 +164,12 @@ export default function TodoApp() {
               >
                 {t.text}
               </span>
+              <button
+                onClick={() => dispatch({ type: 'REMOVE', payload: t.id })}
+                className="remove-button"
+              >
+                ❌
+              </button>
             </li>
           ))}
         </ul>
@@ -165,6 +184,28 @@ export default function TodoApp() {
     </>
   );
 }`}
+      />
+
+      <CodeBlock
+        id="use-in-app"
+        heading="Usar en App"
+        description="Integra el componente TodoApp en la aplicación principal."
+        title="src/App.tsx"
+        language="tsx"
+        code={`import React from 'react';
+import TodoApp from './components/TodoApp';
+
+function App() {
+  return (
+    <main>
+      <h1>Lista de tareas</h1>
+      <TodoApp />
+    </main>
+  );
+}
+
+export default App;
+`}
       />
     </>
   );

@@ -27,7 +27,8 @@ type State = { count: number };
 type Action =
   | { type: 'INCREMENT' }
   | { type: 'DECREMENT' }
-  | { type: 'RESET' };
+  | { type: 'RESET' }
+  | { type: 'PERSONALIZED'; payload: number };
 
 const initialState: State = { count: 0 };
 
@@ -39,6 +40,8 @@ function reducer(state: State, action: Action): State {
       return { count: state.count - 1 };
     case 'RESET':
       return initialState;
+    case 'PERSONALIZED':
+      return { count: state.count + action.payload };
     default:
       return state;
   }
@@ -71,10 +74,35 @@ export default function Counter() {
         <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
         <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
         <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
+        <button onClick={() => dispatch({ type: 'PERSONALIZED', payload: 3 })}>
+          +3
+        </button>
       </div>
     </>
   );
 }`}
+      />
+
+      <CodeBlock
+        id="use-in-app"
+        heading="Usar en App"
+        description="Integra el componente Counter en la aplicación principal."
+        title="src/App.tsx"
+        language="tsx"
+        code={`import React from 'react';
+import Counter from './components/Counter';
+
+function App() {
+  return (
+    <main>
+      <h1>Ejemplo con useReducer</h1>
+      <Counter />
+    </main>
+  );
+}
+
+export default App;
+`}
       />
     </>
   );

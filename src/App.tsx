@@ -23,6 +23,7 @@ import ThemeContextBasicGuide from "./component/documentation/context_API/ThemeC
 import ThemeContextAdvancedGuide from "./component/documentation/context_API/ThemeContextAdvancedGuide";
 import TailwindBasicGuide from "./component/documentation/styling/TailwindBasicGuide";
 import TailwindAdvancedGuide from "./component/documentation/styling/TailwindAdvancedGuide";
+import UseReducerContextGuide from "./component/documentation/state_management/UseReducer_ContextGuide";
 
 function App() {
   return (
@@ -46,6 +47,10 @@ function App() {
           <Route
             path="/context-api-advanced"
             element={<ThemeContextAdvancedGuide />}
+          />
+          <Route
+            path="/use-reducer-context-api"
+            element={<UseReducerContextGuide />}
           />
           <Route path="/react-router" element={<ReactRouter />} />
           <Route path="/outlet-guide" element={<ReactRouterOutletGuide />} />

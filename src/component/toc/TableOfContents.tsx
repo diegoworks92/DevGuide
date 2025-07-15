@@ -61,13 +61,16 @@ export function TableOfContents() {
   return (
     <nav className="fixed pt-10 space-y-1 h-max pl-6 border-l">
       <h1 className="mb-4 text-xl text-[#4EC9B0]">Tabla de contenidos</h1>
-      <div className="flex flex-col">
+      <div className="flex flex-col -ml-[26.5px]">
         {entries.map(({ id, heading }) => (
           <a
             key={id}
             href={`#${id}`}
-            className={`text-sm hover:underline transition ml-2 mb-8 ${
-              activeId === id ? "text-teal-400 font-semibold" : "text-gray-400"
+            className={`text-sm hover:underline transition mb-8 pl-8 ${
+              /* arreglar */
+              activeId === id
+                ? "text-teal-400 font-semibold border-l-[#4EC9B0] border-l-4"
+                : "text-gray-400"
             }`}
           >
             {heading}
