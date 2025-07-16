@@ -1,88 +1,45 @@
-import { NavLink, useLocation } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import ResponsiveSidebar from "./ResponsiveSidebar";
-import {
-  stateManagementPaths,
-  routerPaths,
-  testPaths,
-  i18nPaths,
-  dataFetchingPaths,
-  stylingPaths,
-} from "./sidebarLinks";
 
-const Nav = () => {
-  const irAlInicio = () => {
-    window.scrollTo(0, 0);
-  };
-
-  const { pathname } = useLocation();
+const Nav: React.FC = () => {
   const classLinks = (active: boolean) =>
     `mx-4 ${
       active ? "text-[#CE9178] font-bold" : "text-[#4D8ABB]"
     } hover:text-[#956892] transition`;
 
   return (
-    <header className={`z-50 flex flex-nowrap justify-around pb-10`}>
-      <nav className="fixed bg-[#1E1E1E] gap-36 sm:gap-96 lg:gap-52 w-full top-0 flex justify-around items-center py-3 z-20  bg-opacity-0 backdrop-blur-md border-b">
+    <header className="z-50 flex justify-around pb-10">
+      <nav className="fixed bg-[#1E1E1E] w-full top-0 flex justify-between items-center py-3 px-8 backdrop-blur-md border-b">
         <div
-          className="w-16 flex items-center gap-5 cursor-pointer"
-          onClick={irAlInicio}
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={() => window.scrollTo(0, 0)}
         >
-          <img
-            src="/diego.webp"
-            alt="Profile Picture"
-            className={`rounded-full left-0 w-10 `}
-          />
-          <p className="whitespace-nowrap sm:text-xl font-bold">
-            DiegoWorks | DevGuide
-          </p>
+          <img src="/diego.webp" alt="Profile" className="w-10 rounded-full" />
+          <p className="text-xl font-bold">DiegoWorks | DevGuide</p>
         </div>
-        <div className="hidden xl:flex gap-2">
-          <NavLink to="/" className={({ isActive }) => classLinks(isActive)}>
+
+        <div className="hidden md:flex">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => classLinks(isActive)}
+          >
             Inicio
           </NavLink>
 
           <NavLink
-            to="/redux-toolkit"
-            className={() =>
-              classLinks(stateManagementPaths.includes(pathname))
-            }
+            to="/docs"
+            className={({ isActive }) => classLinks(isActive)}
           >
-            State Management
+            Documentación
           </NavLink>
 
           <NavLink
-            to="/react-router"
-            className={() => classLinks(routerPaths.includes(pathname))}
+            to="/guide"
+            className={({ isActive }) => classLinks(isActive)}
           >
-            Router
-          </NavLink>
-
-          <NavLink
-            to="/test"
-            className={() => classLinks(testPaths.includes(pathname))}
-          >
-            Testing
-          </NavLink>
-
-          <NavLink
-            to="/i18n"
-            className={() => classLinks(i18nPaths.includes(pathname))}
-          >
-            I18n
-          </NavLink>
-
-          <NavLink
-            to="/basic-fetch"
-            className={() => classLinks(dataFetchingPaths.includes(pathname))}
-          >
-            Data Fetching
-          </NavLink>
-
-          <NavLink
-            to="/sass"
-            className={() => classLinks(stylingPaths.includes(pathname))}
-          >
-            Styling
+            Guías
           </NavLink>
         </div>
 

@@ -3,76 +3,54 @@ export interface LinkItem {
   label: string;
 }
 
-// State Management: enlaces + paths
+// State Management
 export const stateManagementLinks: LinkItem[] = [
-  { to: "/redux-toolkit", label: "Redux Toolkit" },
-  { to: "/redux-thunk", label: "Redux Thunk" },
-  { to: "/zustand", label: "Zustand" },
-  { to: "/use-reducer-basic", label: "useReducer: Basic" },
-  { to: "/use-reducer-advanced", label: "useReducer: Advanced" },
-  { to: "/context-api-basic", label: "Context API: Basic" },
-  { to: "/context-api-advanced", label: "Context API: Advanced" },
-  { to: "/use-reducer-context-api", label: "useReducer + Context API" },
+  { to: "/docs/redux-toolkit", label: "Redux Toolkit" },
+  { to: "/docs/redux-thunk", label: "Redux Thunk" },
+  { to: "/docs/zustand", label: "Zustand" },
+  { to: "/docs/use-reducer-basic", label: "useReducer: Basic" },
+  { to: "/docs/use-reducer-advanced", label: "useReducer: Advanced" },
+  { to: "/docs/context-api-basic", label: "Context API: Basic" },
+  { to: "/docs/context-api-advanced", label: "Context API: Advanced" },
+  { to: "/docs/use-reducer-context-api", label: "useReducer + Context API" },
 ];
 
-export const stateManagementPaths: string[] = [
-  "/redux-toolkit",
-  "/redux-thunk",
-  "/zustand",
-  "/use-reducer-basic",
-  "/use-reducer-advanced",
-  "/context-api-basic",
-  "/context-api-advanced",
-  "/use-reducer-context-api",
-];
+export const stateManagementPaths: string[] = stateManagementLinks.map(
+  (l) => l.to
+);
 
-// React Router: enlaces + paths
+// React Router
 export const routerLinks: LinkItem[] = [
-  { to: "/react-router", label: "Basic Setup" },
-  { to: "/outlet-guide", label: "Outlet" },
-  { to: "/navlink-tw", label: "NavLink + Tailwind" },
-  { to: "/navlink-css", label: "NavLink + Css" },
+  { to: "/docs/react-router", label: "Basic Setup" },
+  { to: "/docs/outlet-guide", label: "Outlet" },
+  { to: "/docs/navlink-tw", label: "NavLink + Tailwind" },
+  { to: "/docs/navlink-css", label: "NavLink + Css" },
 ];
-export const routerPaths: string[] = [
-  "/react-router",
-  "/outlet-guide",
-  "/navlink-tw",
-  "/navlink-css",
-];
+export const routerPaths: string[] = routerLinks.map((l) => l.to);
 
-// Testing: enlace + paths
+// Testing
 export const testLinks: LinkItem[] = [
-  { to: "/test", label: "Unit + Integration" },
+  { to: "/docs/test", label: "Unit + Integration" },
 ];
-export const testPaths: string[] = ["/test"];
+export const testPaths: string[] = testLinks.map((l) => l.to);
 
-// I18next: enlace + paths
-export const i18nLinks: LinkItem[] = [{ to: "/i18n", label: "I18Next" }];
-export const i18nPaths: string[] = ["/i18n"];
+// I18next
+export const i18nLinks: LinkItem[] = [{ to: "/docs/i18n", label: "I18Next" }];
+export const i18nPaths: string[] = i18nLinks.map((l) => l.to);
 
-// Data Fetching: enlaces + paths
+// Data Fetching
 export const dataFetchingLinks: LinkItem[] = [
-  { to: "/basic-fetch", label: "Basic Fetch" },
-  { to: "/advanced-fetch", label: "Advanced Fetch" },
-  { to: "/react-query", label: "React Query" },
-  { to: "/axios", label: "Axios" },
+  { to: "/docs/basic-fetch", label: "Basic Fetch" },
+  { to: "/docs/advanced-fetch", label: "Advanced Fetch" },
+  { to: "/docs/react-query", label: "React Query" },
+  { to: "/docs/axios", label: "Axios" },
 ];
-export const dataFetchingPaths: string[] = [
-  "/basic-fetch",
-  "/advanced-fetch",
-  "/react-query",
-  "/axios",
-];
+export const dataFetchingPaths: string[] = dataFetchingLinks.map((l) => l.to);
 
-// Styling: enlaces + paths
+// Styling
 export const stylingLinks: LinkItem[] = [
-  { to: "/sass", label: "Sass" },
-  { to: "/tailwind-css-basic", label: "Tailwind CSS: Basic" },
-  { to: "/tailwind-css-advanced", label: "Tailwind CSS: Advanced" },
+  { to: "/docs/sass", label: "Sass" },
+  { to: "/docs/tailwind-css-basic", label: "Tailwind CSS: Basic" },
+  { to: "/docs/tailwind-css-advanced", label: "Tailwind CSS: Advanced" },
 ];
-
-export const stylingPaths: string[] = [
-  "/sass",
-  "/tailwind-css-basic",
-  "/tailwind-css-advanced",
-];
+export const stylingPaths: string[] = stylingLinks.map((l) => l.to);
