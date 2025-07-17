@@ -1,4 +1,3 @@
-// src/component/Table.tsx
 import React from "react";
 
 interface TableProps {
@@ -14,16 +13,16 @@ const Table: React.FC<TableProps> = ({ columns, rows }) => (
           {columns.map((col, i) => (
             <th
               key={i}
-              className="border px-4 py-2 bg-[#4D8ABB] font-semibold text-left break-words"
+              className="border px-4 py-2 bg-black text-white font-bold text-left break-words"
             >
-              {col}
+              <p className="text-white">{col}</p>
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {rows.map((row, ri) => (
-          <tr key={ri}>
+          <tr key={ri} className={ri % 2 === 0 ? "bg-gray" : "bg-slate"}>
             {row.map((cell, ci) => (
               <td
                 key={ci}

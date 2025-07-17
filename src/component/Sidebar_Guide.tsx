@@ -8,10 +8,10 @@ const Sidebar_Guide: React.FC = () => {
 
   return (
     <div className="fixed top-0 left-0 h-full w-64 border-r pt-20 px-6">
-      <h1 className="mb-4 text-xl text-[#4EC9B0]">Guías</h1>
+      <h1 className="mb-4 text-xl text-primary font-bold">Guías</h1>
       <div className="overflow-y-auto max-h-[calc(100vh-5rem)] pl-4 pb-10">
         <Menu
-          title="Guías disponibles"
+          title="Data Fetching"
           links={guideLinks}
           isActiveSection={guidePaths.includes(pathname)}
         />

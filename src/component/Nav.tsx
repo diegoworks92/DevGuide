@@ -5,12 +5,12 @@ import ResponsiveSidebar from "./ResponsiveSidebar";
 const Nav: React.FC = () => {
   const classLinks = (active: boolean) =>
     `mx-4 ${
-      active ? "text-[#CE9178] font-bold" : "text-[#4D8ABB]"
-    } hover:text-[#956892] transition`;
+      active ? "text-secondary font-bold" : "text-primary"
+    } hover:text-accent transition`;
 
   return (
-    <header className="z-50 flex justify-around pb-10">
-      <nav className="fixed bg-[#1E1E1E] w-full top-0 flex justify-between items-center py-3 px-8 backdrop-blur-md border-b">
+    <header className="relative z-50 flex justify-around pb-10">
+      <nav className="fixed bg-dark w-full top-0 flex justify-between items-center py-3 px-8 backdrop-blur-md border-b">
         <div
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => window.scrollTo(0, 0)}
@@ -19,7 +19,7 @@ const Nav: React.FC = () => {
           <p className="text-xl font-bold">DiegoWorks | DevGuide</p>
         </div>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex font-bold">
           <NavLink
             to="/"
             end

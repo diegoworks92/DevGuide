@@ -37,10 +37,10 @@ const ResponsiveSidebar: React.FC = () => {
   };
 
   const sectionTitleClass =
-    "w-full flex justify-between items-center font-bold text-[#4EC9B0] hover:text-white transition";
+    "w-full flex justify-between items-center font-bold text-primary hover:text-accent transition";
 
   return (
-    <div className="relative z-[10000]">
+    <div className="relative z-[10000] ">
       <button
         className="text-white px-3 py-2 rounded border transition-all duration-300 relative z-[10001]"
         onClick={() => {
@@ -54,7 +54,7 @@ const ResponsiveSidebar: React.FC = () => {
       {isOpen && (
         <div
           ref={menuRef}
-          className="absolute right-0 mt-2 bg-[#1e1e1e] border text-white w-72 pt-4 px-6 shadow-lg z-[10000] rounded max-h-[85vh] overflow-y-auto transition-all duration-300 ease-in-out"
+          className="absolute right-0 mt-2 bg-dark border text-white w-72 pt-4 px-6 shadow-lg z-20 rounded max-h-[85vh] overflow-y-auto transition-all duration-300 ease-in-out"
         >
           {/* INICIO */}
           <div className="mb-4">
@@ -67,22 +67,22 @@ const ResponsiveSidebar: React.FC = () => {
             >
               <NavLink
                 to="/"
-                className="w-full text-left block"
+                className="w-full text-xl text-left block"
                 onClick={(e) => e.stopPropagation()}
               >
                 Inicio
               </NavLink>
             </button>
-            <hr className="border-[#333] mt-2 mb-4" />
+            <hr className="border-slate mt-2 mb-4" />
           </div>
 
           {/* DOCUMENTACIÓN */}
-          <div className="mb-4">
+          <div className="mb-4 ">
             <button
               className={sectionTitleClass}
               onClick={() => toggleSection("docs")}
             >
-              <span>Documentación</span>
+              <span className="text-xl">Documentación</span>
               <FaChevronDown
                 className={`transition-transform duration-400 ${
                   activeSection === "docs" ? "rotate-180" : ""
@@ -124,7 +124,7 @@ const ResponsiveSidebar: React.FC = () => {
                 />
               </div>
             )}
-            <hr className="border-[#333] mt-4" />
+            <hr className="border-slate mt-4" />
           </div>
 
           {/* GUÍA */}
@@ -133,7 +133,7 @@ const ResponsiveSidebar: React.FC = () => {
               className={sectionTitleClass}
               onClick={() => toggleSection("guide")}
             >
-              <span>Guías</span>
+              <span className="text-xl">Guías</span>
               <FaChevronDown
                 className={`transition-transform duration-400 ${
                   activeSection === "guide" ? "rotate-180" : ""
@@ -150,7 +150,7 @@ const ResponsiveSidebar: React.FC = () => {
                 />
               </div>
             )}
-            <hr className="border-[#333] mt-4" />
+            <hr className="border-slate mt-4" />
           </div>
         </div>
       )}

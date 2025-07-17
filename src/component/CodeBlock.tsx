@@ -54,7 +54,7 @@ const CodeBlock = ({
       {heading && (
         <h2
           id={id}
-          className="scroll-mt-20 text-[#4EC9B0] text-xl font-semibold mt-10 mb-4"
+          className="scroll-mt-20 text-primary text-xl font-semibold mt-10 mb-4"
         >
           {heading}
         </h2>
@@ -62,9 +62,9 @@ const CodeBlock = ({
 
       {description && <p className="mt-2 mb-4 text-gray-300">{description}</p>}
 
-      <div className="text-white p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
+      <div className="text-white bg-black p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
         <div className="flex justify-between items-center mb-2 gap-2">
-          <span className="text-sm text-[#6A9955] font-mono">{title}</span>
+          <span className="text-sm text-secondary font-mono">{title}</span>
           <div className="flex items-center gap-2">
             {variants &&
               variants.map((v) => (
@@ -73,8 +73,8 @@ const CodeBlock = ({
                   onClick={() => setActiveCode(v.code)}
                   className={`text-xs px-2 py-1 rounded border ${
                     activeCode === v.code
-                      ? "bg-[#4EC9B0] text-black"
-                      : "border-gray-600 text-gray-400 hover:text-white"
+                      ? "bg-primary text-black"
+                      : "border-gray-600 text-gray-400 hover:text-accent"
                   }`}
                 >
                   {v.label}
@@ -82,7 +82,7 @@ const CodeBlock = ({
               ))}
             <button
               onClick={handleCopy}
-              className="text-gray-400 hover:text-white text-xs px-2 py-1 border border-gray-600 rounded transition"
+              className="text-gray-400 hover:text-accent text-xs px-2 py-1 border border-gray-600 rounded transition"
             >
               {copied ? "✅ Copiado" : <MdContentCopy />}
             </button>
@@ -94,7 +94,7 @@ const CodeBlock = ({
             href={activeCode}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border w-full p-[10px] mt-[3px] border-white inline-block text-white break-all hover:text-[#4EC9B0] transition"
+            className="rounded-lg border w-full p-[10px] mt-[3px] bg-black border-white inline-block text-white break-all hover:text-accent transition"
           >
             {activeCode}
           </a>

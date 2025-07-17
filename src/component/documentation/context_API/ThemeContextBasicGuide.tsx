@@ -56,11 +56,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       code={`import { useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
 
-export function useTheme() {
+export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme debe usarse dentro de ThemeProvider');
   return context;
-}`}
+};
+`}
     />
 
     <CodeBlock
@@ -97,7 +98,7 @@ export function useTheme() {
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from './context/ThemeProvider';
 import App from './App';
-import './styles/theme.css';
+import "./index.css";
 
 ReactDOM.render(
   <ThemeProvider>
@@ -116,7 +117,7 @@ ReactDOM.render(
       code={`import React from 'react';
 import { useTheme } from '../context/useTheme';
 
-export default function ThemeSwitcher() {
+const ThemeSwitcher = () => {
   const { dark, toggle } = useTheme();
 
   return (
@@ -126,7 +127,10 @@ export default function ThemeSwitcher() {
       </button>
     </>
   );
-}`}
+};
+
+export default ThemeSwitcher;
+`}
     />
 
     <CodeBlock
@@ -139,7 +143,9 @@ export default function ThemeSwitcher() {
 import { useTheme } from './context/useTheme';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
-function App() {
+// Accedemos al estado 'dark' desde el hook useTheme para aplicar estilos globales o lógica visual
+// al componente raíz de la aplicación. Esto permite controlar el tema desde la entrada principal.
+const App = () => {
   const { dark } = useTheme();
 
   return (
@@ -147,7 +153,7 @@ function App() {
       <ThemeSwitcher />
     </main>
   );
-}
+};
 
 export default App;
 `}

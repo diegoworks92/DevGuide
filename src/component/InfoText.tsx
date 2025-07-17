@@ -9,7 +9,7 @@ const InfoText: React.FC<InfoTextProps> = ({ heading, description }) => {
   return (
     <div className="mt-10 mb-4 ">
       {heading && (
-        <h2 className="scroll-mt-20 text-[#4EC9B0] text-xl font-semibold mb-4 ">
+        <h2 className="scroll-mt-20 text-primary text-xl font-semibold mb-4 ">
           {heading}
         </h2>
       )}

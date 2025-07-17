@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../../component/Title";
 import InfoText from "../../component/InfoText";
-import Table from "../../component/Table";
+import Table from "../ui/Table";
 import CodeBlock from "../CodeBlock";
 
 const API_Methods: React.FC = () => {

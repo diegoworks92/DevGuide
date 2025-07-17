@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Nav from "../../component/Nav";
 import Sidebar from "../../component/Sidebar";
-import { TableOfContents } from "../../component/toc/TableOfContents";
+import { TableOfContents } from "../toc/TableOfContents";
 
 const DocumentLayout: React.FC = () => (
   <div className="flex flex-col">
