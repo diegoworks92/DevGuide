@@ -40,7 +40,7 @@ const ResponsiveSidebar: React.FC = () => {
     "w-full flex justify-between items-center font-bold text-primary hover:text-accent transition";
 
   return (
-    <div className="relative z-[10000] ">
+    <div className="relative z-[10000] bg-slate">
       <button
         className="text-white px-3 py-2 rounded border transition-all duration-300 relative z-[10001]"
         onClick={() => {
@@ -144,7 +144,7 @@ const ResponsiveSidebar: React.FC = () => {
             {activeSection === "guide" && (
               <div className="mt-2 pl-2">
                 <Menu
-                  title="Guías disponibles"
+                  title="Data Fetching"
                   links={guideLinks}
                   onItemClick={() => setIsOpen(false)}
                 />

@@ -4,12 +4,19 @@ module.exports = {
     extend: {
       colors: {
         primary: "#61DBFB",
-        secondary: "#FFB800",
+        secondary: "#FCC72B",
+        /*          secondary: "#FFB800", */
         dark: "#1F2028",
-        accent: "#FF4F87",
+        /*   accent: "#FF4F87", */
+        /*  accent: "#8efb61", */
+        /*  accent: "#fb8263", */
+        accent: "#93B45A",
         gray: "#1F2937",
         black: "#1E1E1E",
         slate: "#283541",
+      },
+      fontFamily: {
+        code: ['"IBM Plex Mono"', "monospace"],
       },
     },
   },

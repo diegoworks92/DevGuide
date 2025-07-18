@@ -8,11 +8,11 @@ import {
   FaPaintBrush,
   FaWrench,
   FaCheckCircle,
-  FaGlobe,
   FaThumbtack,
 } from "react-icons/fa";
 import NavButton from "./ui/NavButton";
 import ReactIcon from "./ui/ReactIcon";
+import Footer from "./Footer";
 
 const StartScreen = () => {
   return (
@@ -113,7 +113,7 @@ const StartScreen = () => {
           <p className="mb-6 text-gray-300 text-primary text-lg font-bold leading-relaxed">
             Documentación lista para usar:
           </p>
-          {/*    <div className="flex gap-4 mb-10 flex-wrap justify-center sm:justify-start"> */}
+
           <div className="flex flex-wrap gap-4 mb-10 items-start justify-center sm:justify-start">
             <LinkCard
               title="State Management"
@@ -179,25 +179,13 @@ const StartScreen = () => {
             />
           </div>
 
-          <p className="mb-4 text-gray-300 leading-relaxed flex items-center gap-2">
-            <FaGlobe className="text-primary" />
-            Visita mi portafolio en{" "}
-            <a
-              href="https://www.diegoworks.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-accent"
-            >
-              www.diegoworks.com
-            </a>
-          </p>
-
           <p className="text-gray-400 italic mb-4 flex items-center gap-2">
             <FaThumbtack className="text-secondary" />
             Se agregarán más guías con el tiempo.
           </p>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

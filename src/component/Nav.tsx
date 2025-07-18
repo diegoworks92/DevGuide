@@ -5,7 +5,7 @@ import ResponsiveSidebar from "./ResponsiveSidebar";
 const Nav: React.FC = () => {
   const classLinks = (active: boolean) =>
     `mx-4 ${
-      active ? "text-secondary font-bold" : "text-primary"
+      active ? "text-primary font-bold" : "text-white"
     } hover:text-accent transition`;
 
   return (

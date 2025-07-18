@@ -13,7 +13,7 @@ const Table: React.FC<TableProps> = ({ columns, rows }) => (
           {columns.map((col, i) => (
             <th
               key={i}
-              className="border px-4 py-2 bg-black text-white font-bold text-left break-words"
+              className="border px-4 py-2 bg-dark text-white font-bold text-left break-words"
             >
               <p className="text-white">{col}</p>
             </th>

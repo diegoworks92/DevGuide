@@ -62,7 +62,7 @@ const CodeBlock = ({
 
       {description && <p className="mt-2 mb-4 text-gray-300">{description}</p>}
 
-      <div className="text-white bg-black p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
+      <div className="text-white bg-dark p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
         <div className="flex justify-between items-center mb-2 gap-2">
           <span className="text-sm text-secondary font-mono">{title}</span>
           <div className="flex items-center gap-2">
@@ -73,8 +73,8 @@ const CodeBlock = ({
                   onClick={() => setActiveCode(v.code)}
                   className={`text-xs px-2 py-1 rounded border ${
                     activeCode === v.code
-                      ? "bg-primary text-black"
-                      : "border-gray-600 text-gray-400 hover:text-accent"
+                      ? "bg-primary text-slate"
+                      : "border-gray-600 text-gray-400 bg-slate hover:text-primary"
                   }`}
                 >
                   {v.label}
@@ -82,9 +82,13 @@ const CodeBlock = ({
               ))}
             <button
               onClick={handleCopy}
-              className="text-gray-400 hover:text-accent text-xs px-2 py-1 border border-gray-600 rounded transition"
+              className="text-gray-400 hover:text-primary bg-slate text-xs px-2 py-1 border border-gray-600 rounded transition"
             >
-              {copied ? "✅ Copiado" : <MdContentCopy />}
+              {copied ? (
+                <p className="text-primary">Copiado!</p>
+              ) : (
+                <MdContentCopy />
+              )}
             </button>
           </div>
         </div>
@@ -94,7 +98,7 @@ const CodeBlock = ({
             href={activeCode}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border w-full p-[10px] mt-[3px] bg-black border-white inline-block text-white break-all hover:text-accent transition"
+            className="font-code text-[12px] rounded-lg border w-full p-[10px] mt-[3px] bg-black border-white inline-block text-[#dbfe54] break-all hover:text-accent transition"
           >
             {activeCode}
           </a>

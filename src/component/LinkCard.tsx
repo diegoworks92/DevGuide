@@ -38,7 +38,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, links }) => {
   return (
     <div
       ref={cardRef}
-      className="border border-primary rounded-2xl py-2 px-4 w-56 min-h-[220px] flex flex-col transition-all duration-300"
+      className="border border-white rounded-2xl py-2 px-4 w-64 sm:w-56 min-h-[220px] flex flex-col transition-all duration-300"
     >
       <h3 className="text-xl font-semibold mb-2 text-primary">{title}</h3>
       <hr className="border-slate mt-0 mb-4" />
