@@ -1,4 +1,4 @@
-import LinkCard from "./LinkCard";
+import LinkCard from "./ui/LinkCard";
 import Nav from "./Nav";
 import {
   FaRocket,
@@ -157,7 +157,7 @@ const StartScreen = () => {
             <LinkCard
               title="Data Fetching"
               links={[
-                { label: "Basic Fetch", to: "/basic-fetch" },
+                { label: "Data Fetching", to: "/data-fetching" },
                 { label: "Advanced Fetch", to: "/advanced-fetch" },
                 { label: "React Query", to: "/react-query" },
                 { label: "Axios", to: "/axios" },

@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Nav from "../../component/Nav";
-import Sidebar from "../../component/Sidebar";
+import Sidebar_Docs from "../sidebar/Sidebar_Docs";
 import { TableOfContents } from "../toc/TableOfContents";
 
 const DocumentLayout: React.FC = () => (
@@ -9,7 +9,7 @@ const DocumentLayout: React.FC = () => (
     <Nav />
     <div className="grid grid-cols-1 lg:grid-cols-[16rem_1fr] xl:grid-cols-[16rem_1fr_auto]">
       <div className="hidden lg:block">
-        <Sidebar />
+        <Sidebar_Docs />
       </div>
       <main className="mt-10 mb-80 p-4 flex justify-center">
         <div className="w-full max-w-3xl">

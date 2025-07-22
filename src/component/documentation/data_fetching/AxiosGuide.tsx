@@ -1,5 +1,5 @@
-import CodeBlock from "../../CodeBlock";
-import Title from "../../Title";
+import CodeBlock from "../../ui/CodeBlock";
+import Title from "../../ui/Title";
 
 const AxiosGuide = () => {
   return (

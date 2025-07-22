@@ -1,4 +1,4 @@
-import Title from "./Title";
+import Title from "./ui/Title";
 
 const NotFound = () => {
   return (

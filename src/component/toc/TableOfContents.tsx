@@ -66,10 +66,10 @@ export function TableOfContents() {
           <a
             key={id}
             href={`#${id}`}
-            className={`text-sm hover:text-accent transition mb-8 pl-8 ${
+            className={`text-sm hover:text-white transition mb-8 pl-8 ${
               activeId === id
                 ? "text-secondary font-semibold border-l-secondary border-l-4"
-                : "text-primary"
+                : "text-zinc-400"
             }`}
           >
             {heading}

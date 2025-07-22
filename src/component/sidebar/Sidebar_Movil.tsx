@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
-import Menu from "./Menu";
+import Menu from "../Menu";
 import {
   stateManagementLinks,
   routerLinks,
@@ -12,7 +12,7 @@ import {
 } from "./sidebarLinks";
 import { guideLinks } from "./guideSidebarLinks";
 
-const ResponsiveSidebar: React.FC = () => {
+const Sidebar_Movil: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -37,7 +37,7 @@ const ResponsiveSidebar: React.FC = () => {
   };
 
   const sectionTitleClass =
-    "w-full flex justify-between items-center font-bold text-primary hover:text-accent transition";
+    "w-full flex justify-between items-center font-bold text-primary hover:text-primary transition";
 
   return (
     <div className="relative z-[10000] bg-slate">
@@ -158,4 +158,4 @@ const ResponsiveSidebar: React.FC = () => {
   );
 };
 
-export default ResponsiveSidebar;
+export default Sidebar_Movil;

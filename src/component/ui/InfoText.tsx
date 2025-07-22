@@ -13,10 +13,10 @@ const InfoText: React.FC<InfoTextProps> = ({ heading, description }) => {
       )}
 
       {description && (
-        <p className="mt-2 text-gray-300 whitespace-pre-line">{description}</p>
+        <p className="mt-2 text-gray-300 whitespace-pre-line rounded-lg border p-4 bg-black">
+          {description}
+        </p>
       )}
-
-      <div className="mt-4 border-t-1" />
     </div>
   );
 };

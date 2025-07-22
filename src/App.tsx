@@ -83,7 +83,7 @@ function App() {
           <Route path="navlink-css" element={<NavLinkCss />} />
           <Route path="test" element={<Test />} />
           <Route path="i18n" element={<I18nGuide />} />
-          <Route path="basic-fetch" element={<BasicFetchGuide />} />
+          <Route path="data-fetching" element={<BasicFetchGuide />} />
           <Route path="advanced-fetch" element={<AdvancedFetchGuide />} />
           <Route path="react-query" element={<ReactQueryGuide />} />
           <Route path="axios" element={<AxiosGuide />} />

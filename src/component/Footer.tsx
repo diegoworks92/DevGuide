@@ -12,7 +12,7 @@ const Footer = () => {
             href="https://www.diegoworks.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:text-accent font-bold"
+            className="text-primary hover:text-secondary font-bold"
           >
             www.diegoworks.com
           </a>

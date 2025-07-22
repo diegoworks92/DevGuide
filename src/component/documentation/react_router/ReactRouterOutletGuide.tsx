@@ -1,6 +1,6 @@
-import InfoText from "../../InfoText";
-import CodeBlock from "../../CodeBlock";
-import Title from "../../Title";
+import InfoText from "../../ui/InfoText";
+import CodeBlock from "../../ui/CodeBlock";
+import Title from "../../ui/Title";
 
 const ReactRouterOutletGuide = () => {
   return (

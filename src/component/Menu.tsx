@@ -21,15 +21,15 @@ const Menu = ({
   // clase para cada enlace
   const classLinks = ({ isActive }: { isActive: boolean }) =>
     `block ${
-      isActive ? "text-secondary font-bold" : "text-primary"
-    } hover:text-accent transition`;
+      isActive ? "text-secondary font-bold" : "text-zinc-400"
+    } hover:text-white transition`;
 
   return (
     <div className="flex flex-col mb-6">
       {/* Título del grupo: cambia de color si isActiveSection */}
       <h2
         className={`-ml-4 mb-2 text-lg font-semibold ${
-          isActiveSection ? "text-secondary" : "text-white"
+          isActiveSection ? "text-secondary" : "text-primary"
         }`}
       >
         {title}
@@ -46,6 +46,7 @@ const Menu = ({
           {link.label}
         </NavLink>
       ))}
+      <hr className="border-slate mt-4" />
     </div>
   );
 };

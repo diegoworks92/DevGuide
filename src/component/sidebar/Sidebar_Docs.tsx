@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import Menu from "./Menu";
+import Menu from "../Menu";
 import {
   stateManagementLinks,
   stateManagementPaths,
@@ -15,10 +15,10 @@ import {
   stylingPaths,
 } from "./sidebarLinks";
 
-const Sidebar = () => {
+const Sidebar_Docs = () => {
   const { pathname } = useLocation();
   return (
-    <div className=" fixed top-0 left-0 h-full w-64 border-r pt-20 px-6">
+    <div className=" fixed top-0 left-0 h-full w-64 border-r pt-20 px-6 ">
       <h1 className="mb-4 text-xl text-white font-bold">Documentación</h1>
 
       {/* Contenedor scrollable */}
@@ -59,4 +59,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar_Docs;

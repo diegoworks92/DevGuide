@@ -1,8 +1,8 @@
 import React from "react";
-import Title from "../../component/Title";
-import InfoText from "../../component/InfoText";
+import Title from "../ui/Title";
+import InfoText from "../ui/InfoText";
 import Table from "../ui/Table";
-import CodeBlock from "../CodeBlock";
+import CodeBlock from "../ui/CodeBlock";
 
 const API_Methods: React.FC = () => {
   const sections = [

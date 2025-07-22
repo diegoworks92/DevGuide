@@ -40,7 +40,7 @@ export const i18nPaths: string[] = i18nLinks.map((l) => l.to);
 
 // Data Fetching
 export const dataFetchingLinks: LinkItem[] = [
-  { to: "/docs/basic-fetch", label: "Basic Fetch" },
+  { to: "/docs/data-fetching", label: "Data Fetching" },
   { to: "/docs/advanced-fetch", label: "Advanced Fetch" },
   { to: "/docs/react-query", label: "React Query" },
   { to: "/docs/axios", label: "Axios" },

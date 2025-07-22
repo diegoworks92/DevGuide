@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import ResponsiveSidebar from "./ResponsiveSidebar";
+import Sidebar_Movil from "./sidebar/Sidebar_Movil";
 
 const Nav: React.FC = () => {
   const classLinks = (active: boolean) =>
     `mx-4 ${
       active ? "text-primary font-bold" : "text-white"
-    } hover:text-accent transition`;
+    } hover:text-secondary transition`;
 
   return (
     <header className="relative z-50 flex justify-around pb-10">
@@ -45,7 +45,7 @@ const Nav: React.FC = () => {
 
         {/* Sidebar responsive: visible hasta xl */}
         <div className="block 2xl:hidden">
-          <ResponsiveSidebar />
+          <Sidebar_Movil />
         </div>
       </nav>
     </header>

@@ -1,4 +1,4 @@
-import type { LinkItem } from "./sidebarLinks";
+import type { LinkItem } from "./sidebar/sidebarLinks";
 
 export const guideLinks: LinkItem[] = [
   { to: "/guide/api-methods", label: "Llamadas a APIs" },

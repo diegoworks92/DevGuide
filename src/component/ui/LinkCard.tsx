@@ -44,7 +44,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, links }) => {
       <hr className="border-slate mt-0 mb-4" />
       <ul className="list-disc list-outside pl-5 space-y-1 text-gray-300 mb-3">
         {visibleLinks.map((link) => (
-          <li key={link.to} className="hover:text-accent">
+          <li key={link.to} className="hover:text-secondary">
             <NavLink to={link.to}>{link.label}</NavLink>
           </li>
         ))}
@@ -53,7 +53,7 @@ const LinkCard: React.FC<LinkCardProps> = ({ title, links }) => {
       {hasExtra && (
         <button
           onClick={toggleExpand}
-          className="text-sm text-secondary hover:text-accent font-medium self-start mt-auto"
+          className="text-sm text-primary hover:text-secondary font-medium self-start mt-auto"
         >
           {isExpanded ? "Ver menos" : "Ver más"}
         </button>
