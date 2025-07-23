@@ -125,63 +125,68 @@ const CodeBlock = ({
       {description && <p className="mt-2 mb-4 text-gray-300">{description}</p>}
 
       <div className="text-white bg-dark p-4 my-2 w-full max-w-full sm:max-w-3xl rounded-lg overflow-x-auto border">
-        <div className="flex justify-between items-center mb-2 gap-2">
+        <div
+          className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-2`}
+        >
           {/* Título archivo */}
           <span className="text-sm text-secondary font-mono">{title}</span>
 
           {/* Etiqueta + Botones */}
-          <div className="flex items-center gap-2">
-            {exampleVariant && (
-              <span
-                className="text-xs px-2 py-1 rounded border flex items-center gap-1 text-exemple border-exemple bg-slate"
-                title="Código de ejemplo"
-                style={{ cursor: "default" }}
-              >
-                <MdInfoOutline />
-                {exampleVariant.label}
-              </span>
-            )}
-
-            {alternativeVariant && (
-              <span
-                className="text-xs px-2 py-1 rounded border flex items-center gap-1 text-alters border-alters bg-slate"
-                title="Otras alternativas del código"
-                style={{ cursor: "default" }}
-              >
-                <MdSwapHoriz />
-                {alternativeVariant.label}
-              </span>
-            )}
-
-            {hasVariants &&
-              variants!.map((v) => (
-                <button
-                  key={v.label}
-                  onClick={() => setActiveCode(v.code)}
-                  className={`text-xs px-2 py-1 rounded border flex items-center gap-1 ${
-                    activeCode === v.code
-                      ? "bg-slate text-white border-none"
-                      : "border-gray-600 bg-slate text-gray-400 hover:bg-slate hover:text-primary"
-                  }`}
-                  title={`Usar ${v.label}`}
+          {(exampleVariant || alternativeVariant || hasVariants) && (
+            <div className="select-none flex flex-wrap items-center gap-2">
+              {exampleVariant && (
+                <span
+                  className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-exemple border-exemple bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden"
+                  title="Código de ejemplo"
+                  style={{ cursor: "default" }}
                 >
-                  {getPackageIcon(v.label)}
-                  {v.label}
-                </button>
-              ))}
-
-            <button
-              onClick={handleCopy}
-              className="text-gray-400 hover:text-primary bg-slate text-xs px-2 py-1 border border-gray-600 rounded transition"
-              title={copied ? "Copiado!" : "Copiar código"}
-            >
-              {copied ? (
-                <span className="text-check">✓</span>
-              ) : (
-                <MdContentCopy />
+                  <MdInfoOutline className="shrink-0" />
+                  <span className="truncate">{exampleVariant.label}</span>
+                </span>
               )}
-            </button>
-          </div>
+
+              {alternativeVariant && (
+                <span
+                  className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-alters border-alters bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden"
+                  title="Otras alternativas del código"
+                  style={{ cursor: "default" }}
+                >
+                  <MdSwapHoriz className="shrink-0" />
+                  <span className="truncate">{alternativeVariant.label}</span>
+                </span>
+              )}
+
+              {hasVariants &&
+                variants!.map((v) => (
+                  <button
+                    key={v.label}
+                    onClick={() => setActiveCode(v.code)}
+                    className={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded border max-w-[160px] truncate whitespace-nowrap overflow-hidden ${
+                      activeCode === v.code
+                        ? "bg-slate text-white border-none"
+                        : "border-gray-600 bg-slate text-gray-400 hover:bg-slate hover:text-primary"
+                    }`}
+                    title={`Usar ${v.label}`}
+                  >
+                    <span className="shrink-0">{getPackageIcon(v.label)}</span>
+                    <span className="truncate">{v.label}</span>
+                  </button>
+                ))}
+
+              <button
+                onClick={handleCopy}
+                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-gray-400 hover:text-primary bg-slate border-gray-600 max-w-[160px] truncate whitespace-nowrap overflow-hidden transition"
+                title={copied ? "Copiado!" : "Copiar código"}
+              >
+                {copied ? (
+                  <span className="text-check shrink-0">✓</span>
+                ) : (
+                  <MdContentCopy className="shrink-0" />
+                )}
+                <span className="truncate">Copiar</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Bloque de código */}

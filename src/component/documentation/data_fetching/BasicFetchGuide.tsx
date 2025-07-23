@@ -1,5 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
-import OutputBlock from "../../ui/OutputBlockProps";
+import OutputBlock from "../../ui/OutputBlock";
 import Title from "../../ui/Title";
 
 const BasicFetchGuide = () => {
