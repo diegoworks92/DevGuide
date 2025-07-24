@@ -13,6 +13,7 @@ module.exports = {
         exemple: "#cfcb0c" /* #fb8263 */,
         alters: "#b54166" /* #FF4F87 */,
         check: "#4ade80",
+        error: "#cf4242",
       },
       fontFamily: {
         code: ['"IBM Plex Mono"', "monospace"],

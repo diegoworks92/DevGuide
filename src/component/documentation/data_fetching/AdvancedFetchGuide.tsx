@@ -2,11 +2,34 @@ import Title from "../../ui/Title";
 import InfoText from "../../ui/InfoText";
 import CodeBlock from "../../ui/CodeBlock";
 import OutputBlock from "../../ui/OutputBlock";
+import RelatedContent from "../../ui/RelatedContent";
+import NavPagination from "../../ui/NavPagination";
 
 const AdvancedFetchGuide = () => {
   return (
     <>
       <Title name="Fetch avanzado con cancelación y reintentos" />
+
+      <RelatedContent
+        links={[
+          {
+            label: "Documentación: Advanced Fetch",
+            href: "/docs/advanced-fetch",
+            type: "doc",
+          },
+          {
+            label: "Guía sobre API Methods",
+            href: "/guide/api-methods",
+            type: "guide",
+          },
+          { label: "Test sobre Hooks", href: "/docs/test", type: "test" },
+          {
+            label: "React Query Docs",
+            href: "https://tanstack.com/query/v4",
+            external: true,
+          },
+        ]}
+      />
 
       <InfoText
         heading="¿Qué implementa esta guía?"
@@ -157,6 +180,8 @@ export default App;`}
         heading="Resumen técnico"
         description={`Esta guía protege contra errores por desmontes de componentes.\n\nMejora la experiencia en conexiones inestables gracias al reintento automático, y mantiene el código modular y limpio.`}
       />
+
+      <NavPagination />
     </>
   );
 };

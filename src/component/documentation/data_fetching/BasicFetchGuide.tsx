@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import OutputBlock from "../../ui/OutputBlock";
 import Title from "../../ui/Title";
 
@@ -284,6 +285,7 @@ export default App;`}
       export default UserListWithReducer;`,
         }}
       />
+      <NavPagination />
     </>
   );
 };

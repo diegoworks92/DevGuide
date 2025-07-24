@@ -61,15 +61,15 @@ export function TableOfContents() {
   return (
     <nav className="fixed pt-10 space-y-1 h-max pl-6 border-l ">
       <h1 className="mb-4 text-xl text-white font-bold">En esta página</h1>
-      <div className="flex flex-col -ml-[26.5px]">
+      <div className="flex flex-col -ml-0">
         {entries.map(({ id, heading }) => (
           <a
             key={id}
             href={`#${id}`}
-            className={`text-sm hover:text-white transition mb-8 pl-8 ${
+            className={`text-sm hover:text-secondary transition mb-8 pl-[24px] -ml-[26.5px] border-l-4 ${
               activeId === id
-                ? "text-secondary font-semibold border-l-secondary border-l-4"
-                : "text-zinc-400"
+                ? "text-primary font-semibold border-l-primary"
+                : "text-zinc-400 border-l-transparent"
             }`}
           >
             {heading}

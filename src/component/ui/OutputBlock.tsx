@@ -33,7 +33,7 @@ const OutputBlock: React.FC<OutputBlockProps> = ({
 
           {/* Etiqueta de resultado */}
           <span
-            className="select-none inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-check border-check bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden"
+            className="select-none inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-check border-check bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
             title="Representación visual del resultado"
             style={{ cursor: "default" }}
           >
@@ -47,6 +47,7 @@ const OutputBlock: React.FC<OutputBlockProps> = ({
           {children}
         </div>
       </div>
+      <div className="h-6" />
     </div>
   );
 };

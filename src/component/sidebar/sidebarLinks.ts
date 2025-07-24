@@ -54,3 +54,14 @@ export const stylingLinks: LinkItem[] = [
   { to: "/docs/tailwind-css-advanced", label: "Tailwind CSS: Advanced" },
 ];
 export const stylingPaths: string[] = stylingLinks.map((l) => l.to);
+
+// Para NavPagination
+
+export const allDocsLinks: LinkItem[] = [
+  ...stateManagementLinks,
+  ...routerLinks,
+  ...testLinks,
+  ...i18nLinks,
+  ...dataFetchingLinks,
+  ...stylingLinks,
+];

@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const TailwindAdvancedGuide = () => {
@@ -177,6 +178,7 @@ export default function Button() {
   return <button className="btn-custom">Click me</button>;
 }`}
       />
+      <NavPagination />
     </>
   );
 };
