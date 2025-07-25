@@ -1,6 +1,7 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
 import OutputBlock from "../../ui/OutputBlock";
+import RelatedContent from "../../ui/RelatedContent";
 import Title from "../../ui/Title";
 
 const BasicFetchGuide = () => {
@@ -285,6 +286,22 @@ export default App;`}
       export default UserListWithReducer;`,
         }}
       />
+
+      <RelatedContent
+        links={[
+          {
+            label: "Documentación: Advanced Fetch",
+            href: "/docs/advanced-fetch",
+            type: "doc",
+          },
+          {
+            label: "Guía sobre API Methods",
+            href: "/guide/api-methods",
+            type: "guide",
+          },
+        ]}
+      />
+
       <NavPagination />
     </>
   );

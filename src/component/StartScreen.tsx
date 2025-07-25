@@ -66,47 +66,54 @@ const StartScreen = () => {
             React:
           </p>
           <ul className="text-gray-300 mb-6 space-y-2">
-            <li className="flex items-center gap-2">
-              <FaRocket className="text-primary" />
-              Configura un proyecto con React, Vite y TypeScript
+            <li className="flex items-start gap-3">
+              <FaRocket className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>Configura un proyecto con React, Vite y TypeScript</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaRoute className="text-primary" />
-              Routing declarativo con React Router
+            <li className="flex items-start gap-3">
+              <FaRoute className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>Routing declarativo con React Router</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaPuzzlePiece className="text-primary" />
-              State management con Redux Toolkit y Async Thunks
+            <li className="flex items-start gap-3">
+              <FaPuzzlePiece className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>State management con Redux Toolkit y Async Thunks</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaVial className="text-primary" />
-              Pruebas unitarias e integradas con Vitest y Testing Library
+            <li className="flex items-start gap-3">
+              <FaVial className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>
+                Pruebas unitarias e integradas con Vitest y Testing Library
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaPaintBrush className="text-primary" />
-              Estilos con Tailwind CSS, CSS personalizado y Sass
+            <li className="flex items-start gap-3">
+              <FaPaintBrush className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>Estilos con Tailwind CSS, CSS personalizado y Sass</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaWrench className="text-primary" />
-              Ejemplos de data fetching con Fetch, Axios y React Query
+            <li className="flex items-start gap-3">
+              <FaWrench className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>
+                Ejemplos de data fetching con Fetch, Axios y React Query
+              </span>
             </li>
           </ul>
 
           <p className="mb-4 text-gray-300 leading-relaxed">
             Cada recurso incluye:
           </p>
+
           <ul className="text-gray-300 mb-10 space-y-2">
-            <li className="flex items-center gap-2">
-              <FaCheckCircle className="text-primary" />
-              Fragmentos de código limpios y comentados
+            <li className="flex items-start gap-3">
+              <FaCheckCircle className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>Fragmentos de código limpios y comentados</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaCheckCircle className="text-primary" />
-              Estructura de archivos y nombres claros
+            <li className="flex items-start gap-3">
+              <FaCheckCircle className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>Estructura de archivos y nombres claros</span>
             </li>
-            <li className="flex items-center gap-2">
-              <FaCheckCircle className="text-primary" />
-              Instrucciones paso a paso que puedes seguir en tu proyecto
+            <li className="flex items-start gap-3">
+              <FaCheckCircle className="text-primary h-4 w-4 mt-1 flex-shrink-0" />
+              <span>
+                Instrucciones paso a paso que puedes seguir en tu proyecto
+              </span>
             </li>
           </ul>
 

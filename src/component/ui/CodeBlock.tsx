@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import {
-  MdClose,
-  MdContentCopy,
-  MdInfoOutline,
-  MdSwapHoriz,
-} from "react-icons/md";
+import { MdContentCopy, MdInfoOutline, MdSwapHoriz } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
 import { useToc } from "./../toc/useToc";
 
@@ -155,7 +150,8 @@ const CodeBlock = ({
           <div className="select-none flex flex-wrap items-center gap-2">
             {exampleVariant && (
               <span
-                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-exemple border-exemple bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
+                /*    className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-exemple border-exemple bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1" */
+                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-xl border text-exemple border-exemple  max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
                 title="Código de ejemplo"
                 style={{ cursor: "default" }}
               >
@@ -166,7 +162,7 @@ const CodeBlock = ({
 
             {alternativeVariant && (
               <span
-                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-alters border-alters bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
+                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-xl border text-alters border-alters max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
                 title="Otras alternativas del código"
                 style={{ cursor: "default" }}
               >
@@ -177,7 +173,7 @@ const CodeBlock = ({
 
             {errorVariant && (
               <span
-                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-error border-error bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
+                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-xl border text-error border-error max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
                 title="Ejemplo incorrecto"
                 style={{ cursor: "default" }}
               >

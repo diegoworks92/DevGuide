@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const SassGuide = () => {
@@ -174,6 +175,7 @@ function App() {
 export default App;`}
         language="tsx"
       />
+      <NavPagination />
     </>
   );
 };

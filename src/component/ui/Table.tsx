@@ -6,7 +6,7 @@ interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ columns, rows }) => (
-  <div className="w-full overflow-x-auto mb-8">
+  <div className="w-full overflow-x-auto mb-8 ">
     <table className="border-collapse table-auto w-full min-w-0">
       <thead>
         <tr>
@@ -26,7 +26,7 @@ const Table: React.FC<TableProps> = ({ columns, rows }) => (
             {row.map((cell, ci) => (
               <td
                 key={ci}
-                className="border px-4 py-2 text-left align-top break-words"
+                className="border px-4 py-2 text-sm text-left align-top break-words"
               >
                 {cell}
               </td>

@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const TailwindPostCSSGuide = () => {
@@ -92,6 +93,7 @@ export default function App() {
   );
 }`}
       />
+      <NavPagination />
     </>
   );
 };

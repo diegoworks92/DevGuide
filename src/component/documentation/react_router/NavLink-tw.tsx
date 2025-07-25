@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const NavLinkTw = () => {
@@ -100,6 +101,7 @@ export default NavBar;`}
         code={`<Route path="*" element={<NotFound />} />`}
         language="tsx"
       />
+      <NavPagination />
     </>
   );
 };

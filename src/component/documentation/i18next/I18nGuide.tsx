@@ -1,6 +1,7 @@
 import InfoText from "../../ui/InfoText";
 import CodeBlock from "../../ui/CodeBlock";
 import Title from "../../ui/Title";
+import NavPagination from "../../ui/NavPagination";
 
 const I18nGuide = () => {
   return (
@@ -157,6 +158,7 @@ i18n
 export default i18n;`}
         language="ts"
       />
+      <NavPagination />
     </>
   );
 };

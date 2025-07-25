@@ -33,12 +33,12 @@ const OutputBlock: React.FC<OutputBlockProps> = ({
 
           {/* Etiqueta de resultado */}
           <span
-            className="select-none inline-flex items-center gap-1 text-xs px-2 py-1 rounded border text-check border-check bg-slate max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
+            className="select-none inline-flex items-center gap-1 text-xs px-2 py-1 rounded-xl border text-check border-check max-w-[160px] truncate whitespace-nowrap overflow-hidden -mt-1"
             title="Representación visual del resultado"
             style={{ cursor: "default" }}
           >
             <MdVisibility className="shrink-0" />
-            <span className="truncate">Vista simulada</span>
+            <span className="truncate">Vista funcional</span>
           </span>
         </div>
 

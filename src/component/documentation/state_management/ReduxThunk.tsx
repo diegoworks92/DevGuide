@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const ReduxThunk = () => {
@@ -143,6 +144,7 @@ const UserProfile = () => {
 export default UserProfile;`}
         language="tsx"
       />
+      <NavPagination />
     </>
   );
 };

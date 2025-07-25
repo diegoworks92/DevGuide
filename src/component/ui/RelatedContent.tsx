@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { MdLink, MdBook, MdSchool, MdQuiz } from "react-icons/md";
+import { MdLink, MdBook, MdMenuBook, MdQuiz } from "react-icons/md";
 
 interface RelatedContentProps {
   links: {
@@ -16,7 +16,7 @@ const getIconForType = (type?: string) => {
     case "doc":
       return <MdBook className=" shrink-0" />;
     case "guide":
-      return <MdSchool className=" shrink-0" />;
+      return <MdMenuBook className=" shrink-0" />;
     case "test":
       return <MdQuiz className=" shrink-0" />;
     default:
@@ -28,7 +28,8 @@ const RelatedContent: React.FC<RelatedContentProps> = ({ links }) => {
   if (!links.length) return null;
 
   return (
-    <div className="mt-10 mb-6">
+    <div className="mt-12 ">
+      <hr className="border-slate mb-12" />
       <h2 className="scroll-mt-20 text-xl font-semibold mb-4 flex items-center gap-2 text-accent">
         <MdLink />
         Recursos relacionados
@@ -41,7 +42,7 @@ const RelatedContent: React.FC<RelatedContentProps> = ({ links }) => {
               {link.external ? (
                 <a
                   href={link.href}
-                  target="_blank"
+                  /*     target="_blank" */
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-mono px-3 py-2 rounded border border-accent text-accent hover:text-secondary hover:border-secondary transition"
                 >
@@ -51,7 +52,7 @@ const RelatedContent: React.FC<RelatedContentProps> = ({ links }) => {
               ) : (
                 <NavLink
                   to={link.href}
-                  target="_blank"
+                  /*       target="_blank" */
                   className="inline-flex items-center gap-2 text-sm font-mono px-3 py-2 rounded border border-accent text-accent hover:text-secondary hover:border-secondary transition"
                 >
                   {getIconForType(link.type)}

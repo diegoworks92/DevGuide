@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const ReactQueryGuide = () => {
@@ -193,6 +194,7 @@ ReactDOM.render(
 );`}
         language="tsx"
       />
+      <NavPagination />
     </>
   );
 };

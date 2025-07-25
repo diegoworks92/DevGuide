@@ -1,4 +1,5 @@
 import CodeBlock from "../../ui/CodeBlock";
+import NavPagination from "../../ui/NavPagination";
 import Title from "../../ui/Title";
 
 const AxiosGuide = () => {
@@ -217,6 +218,7 @@ api.get('/users', { cancelToken: source.token })
 source.cancel('Operación cancelada por el usuario.');`}
         language="ts"
       />
+      <NavPagination />
     </>
   );
 };
