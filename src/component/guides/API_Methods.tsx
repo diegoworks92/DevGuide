@@ -3,6 +3,9 @@ import Title from "../ui/Title";
 import InfoText from "../ui/InfoText";
 import Table from "../ui/Table";
 import CodeBlock from "../ui/CodeBlock";
+import RelatedContent from "../ui/RelatedContent";
+import NavPagination from "../ui/NavPagination";
+import { allGuideLinks } from "../sidebar/guideSidebarLinks";
 
 const API_Methods: React.FC = () => {
   const sections = [
@@ -426,8 +429,29 @@ function ItemList() {
         description="La elección depende de la escala y necesidades de tu proyecto. Empieza con soluciones sencillas y evoluciona hacia React Query, SWR o middleware de Redux según crezca la complejidad de tus peticiones, caché y sincronización de datos."
       />
 
-      <InfoText heading="Tabla comparativa general" />
-      <Table columns={general.columns} rows={general.rows} />
+      <Table
+        columns={general.columns}
+        rows={general.rows}
+        heading="Tabla comparativa general
+"
+      />
+
+      <RelatedContent
+        links={[
+          {
+            label: "Documentación: Data Fetching",
+            href: "/docs/data-fetching",
+            type: "doc",
+          },
+          {
+            label: "Documentación: Advanced Fetch",
+            href: "/docs/advanced-fetch",
+            type: "doc",
+          },
+        ]}
+      />
+
+      <NavPagination links={allGuideLinks} />
     </>
   );
 };

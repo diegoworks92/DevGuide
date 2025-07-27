@@ -1,7 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Menu from "./../Menu";
-import { guideLinks, guidePaths } from "./guideSidebarLinks";
+import {
+  guideStateManagementLinks,
+  guideStateManagementPaths,
+  guideDataFetchingLinks,
+  guideDataFetchingPaths,
+} from "./guideSidebarLinks";
 
 const Sidebar_Guide: React.FC = () => {
   const { pathname } = useLocation();
@@ -12,9 +17,14 @@ const Sidebar_Guide: React.FC = () => {
       <hr className="border-slate mt-4" />
       <div className="overflow-y-auto max-h-[calc(100vh-5rem)] pl-4 pb-10 mt-6">
         <Menu
+          title="State Management"
+          links={guideStateManagementLinks}
+          isActiveSection={guideStateManagementPaths.includes(pathname)}
+        />
+        <Menu
           title="Data Fetching"
-          links={guideLinks}
-          isActiveSection={guidePaths.includes(pathname)}
+          links={guideDataFetchingLinks}
+          isActiveSection={guideDataFetchingPaths.includes(pathname)}
         />
       </div>
     </div>

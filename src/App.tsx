@@ -35,6 +35,7 @@ import TailwindAdvancedGuide from "./component/documentation/styling/TailwindAdv
 
 // Guía
 import API_Methods from "./component/guides/API_Methods";
+import TodoAppGuide from "./component/guides/UseReducer_TodoGuide";
 
 function App() {
   return (
@@ -62,7 +63,7 @@ function App() {
           <Route path="zustand" element={<ZustandGuide />} />
           <Route path="use-reducer-basic" element={<UseReducerBasicGuide />} />
           <Route
-            path="use-reducer-advanced"
+            path="use-reducer-todolist"
             element={<UseReducerAdvancedGuide />}
           />
           <Route
@@ -100,6 +101,7 @@ function App() {
           {/* al /guide redirijo al primer apartado */}
           <Route index element={<Navigate to="api-methods" replace />} />
           <Route path="api-methods" element={<API_Methods />} />
+          <Route path="/guide/todoapp" element={<TodoAppGuide />} />
           {/* aquí más subrutas de Guía */}
         </Route>
 

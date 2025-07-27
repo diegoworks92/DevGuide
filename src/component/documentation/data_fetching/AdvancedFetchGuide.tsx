@@ -4,6 +4,7 @@ import CodeBlock from "../../ui/CodeBlock";
 import OutputBlock from "../../ui/OutputBlock";
 import RelatedContent from "../../ui/RelatedContent";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 
 const AdvancedFetchGuide = () => {
   return (
@@ -175,7 +176,7 @@ export default App;`}
         ]}
       />
 
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

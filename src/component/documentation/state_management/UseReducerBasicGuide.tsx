@@ -3,12 +3,14 @@ import InfoText from "../../ui/InfoText";
 import CodeBlock from "../../ui/CodeBlock";
 import OutputBlock from "../../ui/OutputBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Counter from "../../examples/Counter";
+import RelatedContent from "../../ui/RelatedContent";
 
 const UseReducerBasicGuide = () => {
   return (
     <>
-      <Title name="useReducer Básico" />
+      <Title name="useReducer: Contador Básico" />
 
       <InfoText
         heading="¿Qué es useReducer?"
@@ -116,19 +118,19 @@ export default function Counter() {
         title="src/App.tsx"
         language="tsx"
         code={`import React from "react";
-          import Counter from "./examples/Counter";
+import Counter from "./examples/Counter";
           
-          function App() {
-            return (
+function App() {
+  return (
     <main>
-    <h1>Ejemplo con useReducer</h1>
-    <Counter />
+      <h1>Ejemplo con useReducer</h1>
+      <Counter />
     </main>
-    );
-    }
+  );
+}
     
-    export default App;
-    `}
+export default App;
+`}
       />
       <OutputBlock
         heading="Counter.tsx"
@@ -137,7 +139,22 @@ export default function Counter() {
         <Counter />
       </OutputBlock>
 
-      <NavPagination />
+      <RelatedContent
+        links={[
+          {
+            label: "Documentación: useReducer: TodoList",
+            href: "/docs/use-reducer-todolist",
+            type: "doc",
+          },
+          {
+            label: "Guía: TodoList con useReducer",
+            href: "/guide/todoapp",
+            type: "guide",
+          },
+        ]}
+      />
+
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

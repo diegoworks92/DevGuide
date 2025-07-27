@@ -1,8 +1,22 @@
-import type { LinkItem } from "./sidebarLinks";
+import type { LinkItem } from "./docsSidebarLinks";
 
-export const guideLinks: LinkItem[] = [
-  { to: "/guide/api-methods", label: "Llamadas a APIs" },
-  // { to: "/guide/otra-guia",   label: "Otra Guía"  },
+// State Management
+export const guideStateManagementLinks: LinkItem[] = [
+  { to: "/guide/todoapp", label: "Guía técnica: TodoApp" },
 ];
 
-export const guidePaths: string[] = guideLinks.map((l) => l.to);
+export const guideStateManagementPaths: string[] =
+  guideStateManagementLinks.map((l) => l.to);
+
+// Data Fetching
+export const guideDataFetchingLinks: LinkItem[] = [
+  { to: "/guide/api-methods", label: "Llamadas a APIs" },
+];
+export const guideDataFetchingPaths: string[] = guideDataFetchingLinks.map(
+  (l) => l.to
+);
+
+export const allGuideLinks: LinkItem[] = [
+  ...guideStateManagementLinks,
+  ...guideDataFetchingLinks,
+];

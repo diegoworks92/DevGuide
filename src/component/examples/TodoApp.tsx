@@ -1,6 +1,8 @@
 import React, { useReducer, useEffect } from "react";
 import type { FormEvent } from "react";
 
+// Se utiliza en UseReducerAdvancedGuide
+
 type Task = { id: number; text: string; done: boolean };
 type Action =
   | { type: "ADD"; payload: string }

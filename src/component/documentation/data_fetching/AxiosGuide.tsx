@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const AxiosGuide = () => {
@@ -218,7 +219,7 @@ api.get('/users', { cancelToken: source.token })
 source.cancel('Operación cancelada por el usuario.');`}
         language="ts"
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

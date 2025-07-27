@@ -1,17 +1,24 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { allDocsLinks } from "../sidebar/sidebarLinks";
 import { FaArrowLeft, FaArrowRight, FaArrowUp } from "react-icons/fa";
+// ⛔ Quita este import porque ahora lo recibirás como prop
+// import { allDocsLinks } from "../sidebar/sidebarLinks";
 
-const NavPagination = () => {
+// ✅ Agrega una interface para los props
+import type { LinkItem } from "../sidebar/docsSidebarLinks"; // O desde donde tengas definido LinkItem
+
+interface NavPaginationProps {
+  links: LinkItem[];
+}
+
+const NavPagination = ({ links }: NavPaginationProps) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const currentIndex = allDocsLinks.findIndex((link) => link.to === pathname);
-  const prevLink = allDocsLinks[currentIndex - 1];
-  const nextLink = allDocsLinks[currentIndex + 1];
-  const firstLink = allDocsLinks[0];
-
-  const isLastPage = currentIndex === allDocsLinks.length - 1;
+  const currentIndex = links.findIndex((link) => link.to === pathname);
+  const prevLink = links[currentIndex - 1];
+  const nextLink = links[currentIndex + 1];
+  const firstLink = links[0];
+  const isLastPage = currentIndex === links.length - 1;
 
   return (
     <div className="flex justify-between items-end mt-16 border-t border-slate pt-14 text-sm text-slate-300">

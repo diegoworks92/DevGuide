@@ -128,10 +128,13 @@ const StartScreen = () => {
                 { label: "Redux Toolkit", to: "/redux-toolkit" },
                 { label: "Redux Thunk", to: "/redux-thunk" },
                 { label: "Zustand", to: "/zustand" },
-                { label: "useReducer: Basic", to: "/docs/use-reducer-basic" },
                 {
-                  label: "useReducer: Advanced",
-                  to: "/docs/use-reducer-advanced",
+                  label: "useReducer: Contador",
+                  to: "/docs/use-reducer-basic",
+                },
+                {
+                  label: "useReducer: TodoList",
+                  to: "/docs/use-reducer-todolist",
                 },
                 { label: "Context API: Basic", to: "/docs/context-api-basic" },
                 {

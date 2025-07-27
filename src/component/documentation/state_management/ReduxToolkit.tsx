@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const ReduxToolkit = () => {
@@ -163,7 +164,7 @@ export function Counter() {
         language="tsx"
       />
 
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

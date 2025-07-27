@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const TailwindAdvancedGuide = () => {
@@ -178,7 +179,7 @@ export default function Button() {
   return <button className="btn-custom">Click me</button>;
 }`}
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

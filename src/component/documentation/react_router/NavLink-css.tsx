@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const NavLinkCss = () => {
@@ -122,7 +123,7 @@ const NavBar = () => {
         code={`<Route path="*" element={<NotFound />} />`}
         language="tsx"
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

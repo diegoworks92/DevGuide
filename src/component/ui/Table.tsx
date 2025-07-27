@@ -3,10 +3,14 @@ import React from "react";
 interface TableProps {
   columns: string[];
   rows: React.ReactNode[][];
+  heading?: string;
 }
 
-const Table: React.FC<TableProps> = ({ columns, rows }) => (
-  <div className="w-full overflow-x-auto mb-8 ">
+const Table: React.FC<TableProps> = ({ columns, rows, heading }) => (
+  <div className="w-full overflow-x-auto mt-12 mb-16 ">
+    <h2 className="scroll-mt-20 text-primary text-xl font-semibold mb-4 ">
+      {heading}
+    </h2>
     <table className="border-collapse table-auto w-full min-w-0">
       <thead>
         <tr>

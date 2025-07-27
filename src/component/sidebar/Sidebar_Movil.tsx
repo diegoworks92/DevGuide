@@ -9,8 +9,11 @@ import {
   i18nLinks,
   dataFetchingLinks,
   stylingLinks,
-} from "./sidebarLinks";
-import { guideLinks } from "./guideSidebarLinks";
+} from "./docsSidebarLinks";
+import {
+  guideStateManagementLinks,
+  guideDataFetchingLinks,
+} from "./guideSidebarLinks";
 
 const Sidebar_Movil: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -145,7 +148,12 @@ const Sidebar_Movil: React.FC = () => {
               <div className="mt-2 pl-2">
                 <Menu
                   title="Data Fetching"
-                  links={guideLinks}
+                  links={guideStateManagementLinks}
+                  onItemClick={() => setIsOpen(false)}
+                />
+                <Menu
+                  title="Data Fetching"
+                  links={guideDataFetchingLinks}
                   onItemClick={() => setIsOpen(false)}
                 />
               </div>

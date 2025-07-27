@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const ZustandGuide = () => {
@@ -103,7 +104,7 @@ export const useStore = create<BearState>(
 );`}
         language="ts"
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

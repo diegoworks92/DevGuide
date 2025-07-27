@@ -2,6 +2,7 @@ import InfoText from "../../ui/InfoText";
 import CodeBlock from "../../ui/CodeBlock";
 import Title from "../../ui/Title";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 
 const I18nGuide = () => {
   return (
@@ -158,7 +159,7 @@ i18n
 export default i18n;`}
         language="ts"
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

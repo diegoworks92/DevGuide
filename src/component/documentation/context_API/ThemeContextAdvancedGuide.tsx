@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const ThemeContextAdvancedGuide = () => (
@@ -168,7 +169,7 @@ function App() {
 export default App;
 `}
     />
-    <NavPagination />
+    <NavPagination links={allDocsLinks} />
   </>
 );
 

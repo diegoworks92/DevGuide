@@ -1,5 +1,6 @@
 import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 
 const ReactRouter = () => {
@@ -131,7 +132,7 @@ export default function Layout() {
 </Routes>`}
         language="tsx"
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };

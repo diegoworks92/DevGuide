@@ -13,7 +13,7 @@ import {
   dataFetchingPaths,
   stylingLinks,
   stylingPaths,
-} from "./sidebarLinks";
+} from "./docsSidebarLinks";
 
 const Sidebar_Docs = () => {
   const { pathname } = useLocation();

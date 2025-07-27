@@ -2,6 +2,7 @@ import InfoText from "../../ui/InfoText";
 import CodeBlock from "../../ui/CodeBlock";
 import Title from "../../ui/Title";
 import NavPagination from "../../ui/NavPagination";
+import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 
 const ReactRouterOutletGuide = () => {
   return (
@@ -71,7 +72,7 @@ function App() {
 export default App;`}
         language="tsx"
       />
-      <NavPagination />
+      <NavPagination links={allDocsLinks} />
     </>
   );
 };
