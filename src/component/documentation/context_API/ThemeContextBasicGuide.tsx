@@ -2,10 +2,12 @@ import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
 import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
+import OutputBlock from "../../ui/OutputBlock";
+import ThemeSwitcher from "../../examples/ThemeSwitcher";
 
 const ThemeContextBasicGuide = () => (
   <>
-    <Title name="Context API Básico" />
+    <Title name="Context API: ThemeContext" />
 
     <CodeBlock
       id="create-context"
@@ -70,7 +72,7 @@ export const useTheme = () => {
       id="global-styles"
       heading="Estilos globales"
       description="Define variables y clases para light y dark."
-      title="src/styles/theme.css"
+      title="src/index.css"
       language="css"
       code={`:root {
   --bg-light: #ffffff;
@@ -160,6 +162,14 @@ const App = () => {
 export default App;
 `}
     />
+
+    <OutputBlock
+      heading="ThemeContext"
+      description="Componente funcional con lógica aplicada usando useReducer:"
+    >
+      <ThemeSwitcher />
+    </OutputBlock>
+
     <NavPagination links={allDocsLinks} />
   </>
 );

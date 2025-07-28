@@ -241,7 +241,7 @@ export default App;
       />
 
       <OutputBlock
-        heading="Vista funcional del componente"
+        heading="TodoList"
         description="Este es el resultado interactivo del componente TodoApp con useReducer avanzado."
       >
         <TodoApp />

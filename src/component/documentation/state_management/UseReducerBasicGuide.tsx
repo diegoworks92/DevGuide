@@ -133,7 +133,7 @@ export default App;
 `}
       />
       <OutputBlock
-        heading="Counter.tsx"
+        heading="Contador"
         description="Componente funcional con lógica aplicada usando useReducer:"
       >
         <Counter />

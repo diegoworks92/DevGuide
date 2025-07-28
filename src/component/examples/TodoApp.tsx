@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import type { FormEvent } from "react";
 
 // Se utiliza en UseReducerAdvancedGuide
