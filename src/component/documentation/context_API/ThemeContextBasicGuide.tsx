@@ -4,6 +4,7 @@ import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
 import OutputBlock from "../../ui/OutputBlock";
 import ThemeSwitcher from "../../examples/ThemeSwitcher";
+import RelatedContent from "../../ui/RelatedContent";
 
 const ThemeContextBasicGuide = () => (
   <>
@@ -75,19 +76,23 @@ export const useTheme = () => {
       title="src/index.css"
       language="css"
       code={`:root {
-  --bg-light: #ffffff;
-  --bg-dark: #1f2937;
+  --light: #ffffff;
+  --dark: #1E1E1E;
   --text-light: #111827;
-  --text-dark: #f9fafb;
+  --text-dark: #f3f4f6;
+  --btn-light-bg: #1E1E1E;
+  --btn-light-text: #f3f4f6;
+  --btn-dark-bg: #ffffff;
+  --btn-dark-text: #111827;
 }
 
 .theme-light {
-  background: var(--bg-light);
+  background-color: var(--light);
   color: var(--text-light);
 }
 
 .theme-dark {
-  background: var(--bg-dark);
+  background-color: var(--dark);
   color: var(--text-dark);
 }`}
     />
@@ -98,17 +103,17 @@ export const useTheme = () => {
       description="Aplica `ThemeProvider` en el entry point."
       title="src/main.tsx"
       language="tsx"
-      code={`import React from 'react';
-import ReactDOM from 'react-dom';
-import { ThemeProvider } from './context/ThemeProvider';
-import App from './App';
+      code={`import React from "react";
+import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "./context/ThemeProvider";
+import App from "./App";
 import "./index.css";
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root")!);
+root.render(
   <ThemeProvider>
     <App />
-  </ThemeProvider>,
-  document.getElementById('root')
+  </ThemeProvider>
 );`}
     />
 
@@ -123,13 +128,17 @@ import { useTheme } from '../context/useTheme';
 
 const ThemeSwitcher = () => {
   const { dark, toggle } = useTheme();
+  const theme = dark ? "dark" : "light";
 
   return (
-    <>
-      <h1>{dark ? "Modo Oscuro" : "Modo Claro"}</h1>
-      <button onClick={toggle}>Cambiar modo {dark ? "claro" : "oscuro"}
+    <div className={theme === "light" ? "theme-light" : "theme-dark"}>
+      <div className="theme-indicator">
+        Tema actual: {theme.toUpperCase()}
+      </div>
+      <button className="theme-toggle-btn" onClick={toggle}>
+        Cambiar a tema {theme === "light" ? "oscuro" : "claro"}
       </button>
-    </>
+    </div>
   );
 };
 
@@ -147,8 +156,6 @@ export default ThemeSwitcher;
 import { useTheme } from './context/useTheme';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
-// Accedemos al estado 'dark' desde el hook useTheme para aplicar estilos globales o lógica visual
-// al componente raíz de la aplicación. Esto permite controlar el tema desde la entrada principal.
 const App = () => {
   const { dark } = useTheme();
 
@@ -165,10 +172,25 @@ export default App;
 
     <OutputBlock
       heading="ThemeContext"
-      description="Componente funcional con lógica aplicada usando useReducer:"
+      description="Componente funcional con lógica aplicada usando useState y Context API para alternar el tema."
     >
       <ThemeSwitcher />
     </OutputBlock>
+
+    <RelatedContent
+      links={[
+        {
+          label: "Context API Avanzado",
+          href: "/docs/themecontext-advanced",
+          type: "doc",
+        },
+        {
+          label: "Context API para tema claro/oscuro",
+          href: "/guide/themecontext-guide",
+          type: "guide",
+        },
+      ]}
+    />
 
     <NavPagination links={allDocsLinks} />
   </>

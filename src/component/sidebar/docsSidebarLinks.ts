@@ -10,8 +10,8 @@ export const stateManagementLinks: LinkItem[] = [
   { to: "/docs/zustand", label: "Zustand" },
   { to: "/docs/use-reducer-basic", label: "useReducer: Contador" },
   { to: "/docs/use-reducer-todolist", label: "useReducer: TodoList" },
-  { to: "/docs/context-api-basic", label: "Context API: Basic" },
-  { to: "/docs/context-api-advanced", label: "Context API: Advanced" },
+  { to: "/docs/context-api-themecontext", label: "Context API: ThemeContext" },
+  { to: "/docs/themecontext-advanced", label: "Context API: Advanced" },
   { to: "/docs/use-reducer-context-api", label: "useReducer + Context API" },
 ];
 

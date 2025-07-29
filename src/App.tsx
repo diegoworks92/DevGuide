@@ -36,6 +36,7 @@ import TailwindAdvancedGuide from "./component/documentation/styling/TailwindAdv
 // Guía
 import API_Methods from "./component/guides/API_Methods";
 import TodoAppGuide from "./component/guides/UseReducer_TodoGuide";
+import ThemeContextGuide from "./component/guides/ThemeContextGuide";
 
 function App() {
   return (
@@ -71,11 +72,11 @@ function App() {
             element={<UseReducerContextGuide />}
           />
           <Route
-            path="context-api-basic"
+            path="context-api-themecontext"
             element={<ThemeContextBasicGuide />}
           />
           <Route
-            path="context-api-advanced"
+            path="themecontext-advanced"
             element={<ThemeContextAdvancedGuide />}
           />
           <Route path="react-router" element={<ReactRouter />} />
@@ -102,7 +103,10 @@ function App() {
           <Route index element={<Navigate to="api-methods" replace />} />
           <Route path="api-methods" element={<API_Methods />} />
           <Route path="/guide/todoapp" element={<TodoAppGuide />} />
-          {/* aquí más subrutas de Guía */}
+          <Route
+            path="/guide/themecontext-guide"
+            element={<ThemeContextGuide />}
+          />
         </Route>
 
         {/* 404 */}

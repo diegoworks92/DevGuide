@@ -2,10 +2,20 @@ import CodeBlock from "../../ui/CodeBlock";
 import NavPagination from "../../ui/NavPagination";
 import { allDocsLinks } from "../../sidebar/docsSidebarLinks";
 import Title from "../../ui/Title";
+import OutputBlock from "../../ui/OutputBlock";
+import ThemeSwitcher from "../../examples/ThemeSwitcher";
+import RelatedContent from "../../ui/RelatedContent";
 
 const ThemeContextAdvancedGuide = () => (
   <>
-    <Title name="Context API Avanzado" />
+    <Title name="ThemeContext con useReducer y Persistencia" />
+
+    <p style={{ fontSize: "1rem", marginBottom: "2rem" }}>
+      Si ya usas <strong>ThemeContext con useState</strong> pero quieres
+      añadirle más flexibilidad, esta documentación te muestra cómo escalarlo
+      con <code>useReducer</code>, separación de contextos y persistencia en{" "}
+      <code>localStorage</code>.
+    </p>
 
     <CodeBlock
       id="reducer-types"
@@ -120,6 +130,26 @@ export function useThemeDispatch() {
     />
 
     <CodeBlock
+      id="wrap-advanced"
+      heading="Envolver la App con ThemeProvider"
+      description="Asegúrate de envolver tu aplicación desde el entry point con el ThemeProvider avanzado."
+      title="src/main.tsx"
+      language="tsx"
+      code={`import React from "react";
+import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "./context/ThemeProvider";
+import App from "./App";
+import "./index.css";
+
+const root = createRoot(document.getElementById("root")!);
+root.render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
+);`}
+    />
+
+    <CodeBlock
       id="consume-advanced"
       heading="Componente ThemeSwitcher"
       description="Alterna tema con dispatch y muestra estado."
@@ -133,9 +163,14 @@ export default function ThemeSwitcher() {
   const dispatch = useThemeDispatch();
 
   return (
-    <button onClick={() => dispatch({ type: 'TOGGLE' })}>
-      Tema: {theme === 'light' ? 'Claro' : 'Oscuro'}
-    </button>
+    <div className={theme === 'light' ? 'theme-light' : 'theme-dark'}>
+      <div className="theme-indicator">
+        Tema actual: {theme.toUpperCase()}
+      </div>
+      <button className="theme-toggle-btn" onClick={() => dispatch({ type: 'TOGGLE' })}>
+        Cambiar a tema {theme === 'light' ? 'oscuro' : 'claro'}
+      </button>
+    </div>
   );
 }
 `}
@@ -144,23 +179,18 @@ export default function ThemeSwitcher() {
     <CodeBlock
       id="use-theme-in-app"
       heading="Acceder al tema en App"
-      description="Consulta el tema actual y despacha acciones."
+      description="Consulta el tema actual desde el contexto."
       title="src/App.tsx"
       language="tsx"
       code={`import React from 'react';
-import { useThemeState, useThemeDispatch } from './context/useTheme';
+import { useThemeState } from './context/useTheme';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
 function App() {
   const { theme } = useThemeState();
-  const dispatch = useThemeDispatch();
 
   return (
     <main>
-      <h1>Modo actual: {theme === "light" ? "Claro" : "Oscuro"}</h1>
-      <button onClick={() => dispatch({ type: "TOGGLE" })}>
-        Cambiar tema
-      </button>
       <ThemeSwitcher />
     </main>
   );
@@ -169,6 +199,29 @@ function App() {
 export default App;
 `}
     />
+
+    <OutputBlock
+      heading="ThemeContext"
+      description="Componente funcional con lógica aplicada usando useReducer y Context API para gestionar el tema con estilos integrados."
+    >
+      <ThemeSwitcher />
+    </OutputBlock>
+
+    <RelatedContent
+      links={[
+        {
+          label: "Context API: ThemeContext",
+          href: "/docs/context-api-themecontext",
+          type: "doc",
+        },
+        {
+          label: "Context API para tema claro/oscuro",
+          href: "/guide/themecontext-guide",
+          type: "guide",
+        },
+      ]}
+    />
+
     <NavPagination links={allDocsLinks} />
   </>
 );

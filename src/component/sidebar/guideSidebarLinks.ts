@@ -3,6 +3,7 @@ import type { LinkItem } from "./docsSidebarLinks";
 // State Management
 export const guideStateManagementLinks: LinkItem[] = [
   { to: "/guide/todoapp", label: "Guía técnica: TodoApp" },
+  { to: "/guide/themecontext-guide", label: "Guía técnica: ThemeContext" },
 ];
 
 export const guideStateManagementPaths: string[] =

@@ -136,10 +136,13 @@ const StartScreen = () => {
                   label: "useReducer: TodoList",
                   to: "/docs/use-reducer-todolist",
                 },
-                { label: "Context API: Basic", to: "/docs/context-api-basic" },
+                {
+                  label: "Context API: ThemeContext",
+                  to: "/docs/context-themecontext",
+                },
                 {
                   label: "Context API: Advanced",
-                  to: "/docs/context-api-advanced",
+                  to: "/docs/themecontext-advanced",
                 },
                 {
                   label: "useReducer + Context API",

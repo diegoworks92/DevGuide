@@ -103,6 +103,7 @@ export default function TodoApp() {
         }
         .todo-form {
           display: flex;
+          flex-wrap: wrap;
           gap: 0.5rem;
           margin-bottom: 1rem;
         }
@@ -122,6 +123,8 @@ export default function TodoApp() {
           border-radius: 4px;
           cursor: pointer;
           transition: background-color 0.3s ease;
+          flex-shrink: 0; 
+          min-width: 120px
         }
         .todo-button:hover {
           background-color: #6eead2;
